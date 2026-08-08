@@ -1,0 +1,20 @@
+cyclone:
+  name: Midhili
+
+data:
+  forecasts:
+    1dlt: data/sample/midhili/Forecasted_Impact_1dlt.xlsx
+    2dlt: data/sample/midhili/Forecasted_Impact_2dlt.xlsx
+    3dlt: data/sample/midhili/Forecasted_Impact_3dlt.xlsx
+
+  observed: data/sample/midhili/Midhili_ddm.xlsx
+
+  adm3_boundary: data/reference/bangladesh_adm3/bgd_admbnda_adm3_bbs_20201113.shp
+
+sheets:
+  forecast: Midhili
+  house: House
+  agriculture: Agriculture
+
+output:
+  directory: outputs/midhili
