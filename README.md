@@ -1,10 +1,10 @@
 # IBF-Analysis
 
-A reproducible Python workflow for validating **Impact-Based Forecasting (IBF)** products against observed post-disaster impact data.
+A reproducible Python workflow for evaluating cyclone **Impact-Based Forecasting (IBF)** products against observed post-event impacts at the Upazila level in Bangladesh.
 
-The repository supports multiple tropical cyclones and multiple forecast lead times using one common validation workflow.
+The repository supports three cyclone case studies—**Remal, Sitrang, and Midhili**—at **1-day, 2-day, and 3-day lead times**. A parameterized validation notebook is used across cyclone–lead combinations through YAML configuration files.
 
-## Current analysis cases
+## Supported cases
 
 | Cyclone | 1-day lead | 2-day lead | 3-day lead |
 |---|---:|---:|---:|
@@ -12,25 +12,36 @@ The repository supports multiple tropical cyclones and multiple forecast lead ti
 | Sitrang | ✓ | ✓ | ✓ |
 | Midhili | ✓ | ✓ | ✓ |
 
-Lead-time identifiers:
+Lead-time identifiers used in the repository:
 
 - `1dlt` — 1-day lead time
 - `2dlt` — 2-day lead time
 - `3dlt` — 3-day lead time
 
-## Purpose
+## Analysis components
 
-The workflow compares forecast impact indicators with observed post-cyclone DDM impact data and evaluates:
+The current workflow includes:
 
-- continuous forecast–observation agreement
-- binary impact/no-impact performance
-- optimized no-impact thresholds
-- ROC/AUC discrimination
-- DDM severity calibration using quadratic-weighted Kappa
-- exact, adjacent, and off-category severity agreement
-- spatial patterns of hits, misses, false alarms, and correct negatives
+- ROC curve and Area Under the Curve (AUC)
+- Ordinary Least Squares (OLS) regression
+- Pearson correlation and R²
+- Spearman rank correlation
+- Kendall rank correlation
+- one-sided Mann–Whitney U test
+- Hit / Miss / False Alarm / Correct Negative verification
+- Probability of Detection (POD)
+- False Alarm Ratio (FAR)
+- Critical Success Index (CSI)
+- Frequency Bias
+- Accuracy
+- No-Impact threshold optimization
+- class-based damage diagnostics
+- cyclone-specific DDM severity categorization
+- Quadratic-Weighted Cohen's Kappa
+- Exact / Adjacent / Off-category agreement
+- Upazila-level spatial verification using ADM3 P-Codes
 
-The same scientific workflow is applied across all cyclone and lead-time combinations.
+RMSE and NSE are not reported in the current workflow.
 
 ## Repository structure
 
@@ -45,7 +56,7 @@ IBF-Analysis/
 ├── data/
 │   ├── reference/
 │   │   └── bangladesh_adm3/
-│   │       └── bgd_admbnda_adm3_bbs_20201113.shp
+│   │       └── bgd_admbnda_adm3_bbs_20201113.*
 │   │
 │   └── sample/
 │       ├── remal/
@@ -60,11 +71,16 @@ IBF-Analysis/
 │       │   ├── Forecasted_Impact_3dlt.xlsx
 │       │   └── Sitrang_ddm.xlsx
 │       │
-│       └── midhili/
-│           ├── Forecasted_Impact_1dlt.xlsx
-│           ├── Forecasted_Impact_2dlt.xlsx
-│           ├── Forecasted_Impact_3dlt.xlsx
-│           └── Midhili_ddm.xlsx
+│       ├── midhili/
+│       │   ├── Forecasted_Impact_1dlt.xlsx
+│       │   ├── Forecasted_Impact_2dlt.xlsx
+│       │   ├── Forecasted_Impact_3dlt.xlsx
+│       │   └── Midhili_ddm.xlsx
+│       │
+│       └── faapar/
+│           ├── remal/
+│           ├── sitrang/
+│           └── midhili/
 │
 ├── docs/
 │   └── data_dictionary.md
@@ -72,33 +88,28 @@ IBF-Analysis/
 ├── notebooks/
 │   └── 01_remal_validation.ipynb
 │
+├── scripts/
+│   ├── check_inputs.py
+│   ├── run_analysis.py
+│   └── fapar_processing.py
+│
 ├── outputs/
 │   ├── remal/
 │   ├── sitrang/
 │   └── midhili/
-│
-├── scripts/
-│   ├── check_inputs.py
-│   └── run_analysis.py
 │
 ├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
 
-> The notebook name is retained for compatibility, but the analysis is parameterized and used for all supported cyclones and lead times.
+The notebook name is retained for compatibility, but the workflow is parameterized for all supported cyclone and lead-time combinations.
 
 ## Input data
 
-Each cyclone requires:
+### Forecast impact workbooks
 
-1. three forecast impact workbooks
-2. one observed DDM workbook
-3. Bangladesh ADM3 administrative boundaries
-
-### Forecast workbook
-
-Expected forecast files:
+Each cyclone uses three forecast workbooks:
 
 ```text
 Forecasted_Impact_1dlt.xlsx
@@ -106,7 +117,7 @@ Forecasted_Impact_2dlt.xlsx
 Forecasted_Impact_3dlt.xlsx
 ```
 
-Required forecast fields include:
+The workflow uses the administrative and impact fields required by the validation notebook, including:
 
 ```text
 ADM3_PCODE
@@ -116,20 +127,18 @@ Norm_Impact_House
 Norm_Impact_fAPAR
 ```
 
-The current workbook layout uses:
+The current workbook structure also uses:
 
-| Excel column | Purpose |
+| Excel column | Variable |
 |---|---|
 | W | `Norm_Impact_fAPAR` |
-| X | Agriculture/fAPAR severity class |
+| X | Agriculture/fAPAR forecast severity class |
 | AF | `Norm_Impact_House` |
-| AG | House severity class |
+| AG | Household forecast severity class |
 
-If the workbook layout changes, the corresponding notebook column mapping must be updated.
+### Observed DDM data
 
-### Observed DDM workbook
-
-Each cyclone uses one observed workbook:
+Each cyclone uses one Department of Disaster Management (DDM) workbook:
 
 ```text
 Remal_ddm.xlsx
@@ -144,13 +153,23 @@ House
 Agriculture
 ```
 
-The same observed DDM workbook is used for all lead-time experiments of a cyclone.
+The same DDM workbook is used for all three lead times of a cyclone.
+
+### Administrative boundary
+
+Spatial validation uses the Bangladesh ADM3 boundary shapefile:
+
+```text
+data/reference/bangladesh_adm3/bgd_admbnda_adm3_bbs_20201113.shp
+```
+
+Forecast and DDM records are matched using administrative names, while spatial outputs use normalized `ADM3_PCODE` for the ADM3 join.
 
 ## Configuration
 
-Each cyclone has its own YAML configuration.
+Each cyclone has a YAML configuration file under `configs/`.
 
-Example `configs/remal.yaml`:
+Example:
 
 ```yaml
 cyclone:
@@ -174,69 +193,88 @@ output:
   directory: outputs/remal
 ```
 
-Equivalent configuration files are used for Sitrang and Midhili.
+Paths are resolved relative to the repository root, allowing the workflow to run without machine-specific absolute paths.
 
-Forecast severity thresholds are **not manually stored in YAML**. They are derived automatically from the selected forecast workbook.
+## Methodology
 
-# Methodology
+### Continuous association
 
-## 1. Forecast severity thresholds
+Continuous forecast impact scores are compared with positive observed DDM damage values.
 
-Forecast severity thresholds are derived independently for every cyclone and forecast lead time.
+The notebook reports:
 
-### House impact
+- OLS slope and intercept
+- Pearson correlation coefficient and p-value
+- R²
+- Spearman rank correlation and p-value
+- Kendall rank correlation and p-value
+- observed-data skewness
 
-For `Norm_Impact_House`, using the forecast severity class in Excel column `AG`:
+Analyses are produced for both raw observed damage and `log1p`-transformed observed damage.
 
-```text
-Low threshold
-= maximum Norm_Impact_House where AG = "No Impact"
+### Binary verification
 
-Moderate threshold
-= maximum Norm_Impact_House where AG = "Low"
-
-High threshold
-= maximum Norm_Impact_House where AG = "Moderate"
-```
-
-### Agriculture/fAPAR impact
-
-For `Norm_Impact_fAPAR`, using the forecast severity class in Excel column `X`:
+Observed impact is defined as:
 
 ```text
-Low threshold
-= maximum Norm_Impact_fAPAR where X = "No Impact"
-
-Moderate threshold
-= maximum Norm_Impact_fAPAR where X = "Low"
-
-High threshold
-= maximum Norm_Impact_fAPAR where X = "Moderate"
+Impact     : DDM value > 0
+No Impact  : DDM value = 0
 ```
 
-Derived thresholds are rounded to **five decimal places** before classification.
-
-Forecast severity is reconstructed as:
+Binary forecast performance is summarized using:
 
 ```text
-impact <= Low threshold
-    → No Impact
-
-Low threshold < impact <= Moderate threshold
-    → Low
-
-Moderate threshold < impact <= High threshold
-    → Moderate
-
-impact > High threshold
-    → High
+Hit
+Miss
+False Alarm
+Correct Negative
+POD
+FAR
+CSI
+Bias
+Accuracy
 ```
 
-This ensures that each forecast file provides its own severity boundaries.
+A separate class-based diagnostic also compares forecast impact classes with observed damage occurrence.
 
-## 2. DDM severity calibration
+### No-Impact threshold optimization
 
-Observed DDM impact values are classified as:
+The validation workflow evaluates normalized forecast thresholds and calculates:
+
+```text
+Decision Score = CSI - FAR - |Bias - 1|
+```
+
+The main threshold search evaluates values from `0.00` to `1.00` at `0.01` intervals and identifies a balanced candidate using Bias and FAR constraints.
+
+A separate percentile-based diagnostic evaluates empirical forecast-score percentiles from `P5` to `P50` for household and agriculture/fAPAR impact scores.
+
+These procedures are calibration diagnostics rather than independent out-of-sample validation.
+
+### ROC / AUC
+
+ROC curves evaluate how well continuous forecast impact scores discriminate between damaged and undamaged Upazilas.
+
+AUC is calculated for:
+
+- household impact vs number of damaged households
+- household impact vs household repair amount
+- agriculture/fAPAR impact vs damaged agricultural area
+- agriculture/fAPAR impact vs agricultural monetary loss
+
+The ROC/AUC calculation is implemented directly with NumPy.
+
+### Mann–Whitney U test
+
+A one-sided Mann–Whitney U test compares forecast impact scores between damaged and non-damaged Upazilas.
+
+The alternative hypothesis is that forecast impact scores are higher in locations where observed DDM damage occurred.
+
+### Cyclone-specific DDM severity categorization
+
+DDM records contain continuous damage values and do not provide predefined categorical severity levels.
+
+For categorical comparison, observed damage is converted to:
 
 ```text
 No Impact
@@ -245,166 +283,120 @@ Medium
 High
 ```
 
-Zero observed impact is assigned to `No Impact`.
-
-For positive observed values, the workflow performs an exhaustive search over valid pairs of unique observed damage values:
+using:
 
 ```text
-Low Cut
-High Cut
+DDM = 0          -> No Impact
+0 < DDM <= C1    -> Low
+C1 < DDM <= C2   -> Medium
+DDM > C2         -> High
 ```
+
+For each cyclone and damage variable, one pair of DDM cut-points is selected jointly from the `1dlt`, `2dlt`, and `3dlt` forecasts.
 
 For each candidate pair:
 
-```text
-value <= 0                  → No Impact
-0 < value <= Low Cut        → Low
-Low Cut < value <= High Cut → Medium
-value > High Cut            → High
-```
+1. DDM severity classes are generated.
+2. Quadratic-Weighted Kappa is calculated separately for each lead time.
+3. The three Kappa values are averaged.
+4. The pair with the highest mean Kappa is selected.
+5. The selected cut-points are held fixed across all three lead times of that cyclone.
 
-The optimal DDM cut pair is selected by maximizing **quadratic-weighted Kappa** against the fixed forecast severity classes.
+The maximum observed positive DDM value is excluded as a candidate high cut so that the High category remains populated.
 
-## 3. Tertile benchmark
+The output workbook retains the leading candidate threshold combinations for sensitivity assessment.
 
-A benchmark classification is also calculated from non-zero observed DDM values:
+The resulting DDM classes are interpreted as **event-relative observed severity categories**, not universal operational damage thresholds across different cyclone events.
 
-```text
-P33.33 → Low/Medium boundary
-P66.67 → Medium/High boundary
-```
+### Categorical severity agreement
 
-The workflow reports:
-
-- calibrated Kappa
-- tertile Kappa
-- Kappa improvement
-
-## 4. Binary categorical verification
-
-Forecast and observed impacts are converted to impact/no-impact outcomes.
-
-| Forecast | Observed | Category |
-|---|---|---|
-| Impact | Impact | Hit |
-| No Impact | Impact | Miss |
-| Impact | No Impact | False Alarm |
-| No Impact | No Impact | Correct Negative / True Negative |
-
-Metrics include:
-
-- Probability of Detection (POD)
-- False Alarm Ratio (FAR)
-- Critical Success Index (CSI)
-- Frequency Bias
-- Accuracy
-
-## 5. No-impact threshold optimization
-
-Candidate forecast thresholds are evaluated across percentile levels approximately from P5 to P50.
-
-The decision score is:
+Forecast classes:
 
 ```text
-Decision Score = CSI - FAR - |Bias - 1|
+No Impact
+Low
+Moderate
+High
 ```
 
-The selected threshold balances detection skill, false alarms, and forecast frequency bias.
-
-## 6. Continuous validation
-
-Continuous validation includes:
-
-- Pearson correlation
-- Spearman rank correlation
-- Kendall rank correlation
-- coefficient of determination (R²)
-- root mean square error (RMSE)
-- Nash-Sutcliffe Efficiency (NSE)
-
-## 7. ROC/AUC
-
-Receiver Operating Characteristic analysis evaluates the ability of forecast impact values to discriminate observed impact from no-impact cases.
-
-Outputs include ROC curves and Area Under the Curve (AUC).
-
-## 8. Severity agreement
-
-Four-level forecast and DDM severity classes are compared using quadratic-weighted Kappa.
-
-Severity agreement is also summarized as:
+are compared with observed DDM classes:
 
 ```text
-Exact
-    Forecast and observed severity are identical.
-
-Adjacent
-    Forecast and observed severity differ by one class.
-
-Off
-    Forecast and observed severity differ by two or more classes.
+No Impact
+Low
+Medium
+High
 ```
 
-## 9. Spatial validation
+Agreement is summarized as:
 
-ADM3 boundaries are used to map categorical performance, including:
+- **Exact** — forecast and observed severity are the same
+- **Adjacent** — one-category difference
+- **Off** — two- or three-category difference
 
-- Hit
-- Miss
-- False Alarm
-- Correct Negative / True Negative
+Quadratic-Weighted Cohen's Kappa is used as the ordinal agreement statistic.
 
-# Installation
+### Spatial verification
 
-## 1. Clone the repository
+Upazila-level spatial outputs are generated for four forecast–damage comparisons:
+
+- household impact vs damaged-house count
+- household impact vs repair amount
+- agriculture/fAPAR impact vs damaged agricultural land
+- agriculture/fAPAR impact vs agricultural monetary loss
+
+Spatial outputs classify locations as:
+
+```text
+Hit
+Miss
+False Alarm
+True Negative
+```
+
+The current spatial block uses:
+
+```python
+HOUSE_THRESHOLD = 0.0
+AGRI_THRESHOLD = 0.0
+```
+
+and therefore represents impact occurrence using positive normalized forecast impact rather than the separately optimized No-Impact thresholds.
+
+## Installation
+
+Python 3.10 or newer is recommended.
+
+Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/ibrahim-abdullah16/IBF-Analysis.git
 cd IBF-Analysis
 ```
 
-## 2. Create a virtual environment
+Create and activate a virtual environment.
 
-### Windows
+### Windows PowerShell
 
 ```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-### Linux/macOS
+### Linux / macOS
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-```
-
-## 3. Install dependencies
-
-```bash
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-Recommended dependencies:
+## Running the workflow
 
-```text
-numpy
-pandas
-scipy
-matplotlib
-openpyxl
-geopandas
-PyYAML
-scikit-learn
-jupyter
-nbconvert
-ipykernel
-```
-
-# Running the analysis
-
-## Check inputs
+### Check inputs
 
 ```powershell
 python scripts\check_inputs.py --cyclone remal --lead 1dlt
@@ -417,168 +409,89 @@ python scripts\check_inputs.py --cyclone sitrang --lead 2dlt
 python scripts\check_inputs.py --cyclone midhili --lead 3dlt
 ```
 
-The input checker validates the configuration, selected forecast workbook, required sheets and columns, DDM workbook, ADM3 boundary files, and output directory.
-
-## Run one analysis
-
-Syntax:
+### Run one cyclone and lead time
 
 ```powershell
-python scripts\run_analysis.py <cyclone> <lead>
+python scripts\run_analysis.py remal 1dlt
 ```
 
 Examples:
 
 ```powershell
-python scripts\run_analysis.py remal 1dlt
 python scripts\run_analysis.py sitrang 2dlt
 python scripts\run_analysis.py midhili 3dlt
 ```
 
-Valid cyclone identifiers:
-
-```text
-remal
-sitrang
-midhili
-```
-
-Valid lead-time identifiers:
-
-```text
-1dlt
-2dlt
-3dlt
-```
-
-## Run all experiments
+### Run all configured cases
 
 ```powershell
 python scripts\run_analysis.py --all
 ```
 
-This runs all nine cyclone/lead-time combinations.
+### Run interactively
 
-# Output structure
-
-Each experiment is stored independently:
-
-```text
-outputs/
-├── remal/
-│   ├── 1dlt/
-│   ├── 2dlt/
-│   └── 3dlt/
-├── sitrang/
-│   ├── 1dlt/
-│   ├── 2dlt/
-│   └── 3dlt/
-└── midhili/
-    ├── 1dlt/
-    ├── 2dlt/
-    └── 3dlt/
+```powershell
+python -m jupyter notebook notebooks\01_remal_validation.ipynb
 ```
 
-A typical run contains:
+## Outputs
+
+Results are written to:
 
 ```text
-outputs/sitrang/2dlt/
-├── AUC/
-├── Validation/
-├── No_Impact_Threshold_Optimization/
-├── DDM_Categorization/
-├── Hit_Map/
-└── sitrang_2dlt_validation_executed.ipynb
+outputs/<cyclone>/<lead>/
 ```
 
-## DDM categorization outputs
-
-Example:
+Typical output folders include:
 
 ```text
-outputs/sitrang/2dlt/DDM_Categorization/
-├── Sitrang_2dlt_DDM_KappaCalibrated.xlsx
-└── Sitrang_2dlt_Hit_Performance_Heatmap.png
+AUC/
+Validation/
+No_Impact_Threshold_Optimization/
+DDM_Categorization/
+Hit_Map/
 ```
 
-The calibrated workbook contains:
+Generated products include:
 
-- summary statistics
-- House damaged-household classification
-- House monetary-damage classification
-- Agriculture land-loss classification
-- Agriculture monetary-loss classification
-- calibrated-versus-tertile contingency tables
-- top Kappa calibration combinations
+- ROC/AUC figures
+- OLS and correlation diagnostics
+- validation summary workbooks
+- threshold-optimization figures
+- DDM severity-classification workbooks
+- categorical agreement heatmaps
+- spatial Hit / Miss / False Alarm / True Negative outputs
+- CSV summaries
+- executed notebooks
 
-# Reproducibility
+## Optional fAPAR preprocessing
 
-One parameterized validation notebook is used for all experiments.
-
-The runner controls:
+The repository includes:
 
 ```text
-Cyclone
-Forecast lead time
-Forecast workbook
-Observed DDM workbook
-Forecast worksheet
-Output directory
+scripts/fapar_processing.py
 ```
 
-This keeps the scientific workflow constant while changing only the cyclone, lead time, and corresponding inputs.
+for processing before/after fAPAR raster data and generating Upazila-level agricultural vegetation-loss summaries.
 
-For reproducible analysis:
+Prepared forecast workbooks can be used directly without rerunning the raster preprocessing step.
 
-1. keep original input files unchanged
-2. keep YAML configuration files under version control
-3. record package versions
-4. retain the executed notebook generated for each run
-5. do not manually alter automatically derived forecast thresholds
+## Reproducibility
 
-# Data quality considerations
+The workflow uses configuration-based paths and produces separate outputs for each cyclone and lead time. Generated analysis products are stored under `outputs/`, while source scripts, configuration files, notebooks, and input data remain separate.
 
-Before interpreting results, verify:
+Data-driven threshold and severity-calibration components are reported as calibration and categorical-concordance analyses rather than independent predictive validation.
 
-- administrative-name consistency
-- ADM3 P-Code consistency
-- duplicate Upazila records
-- missing forecast or observed values
-- forecast severity-class labels
-- expected Excel column positions
-- consistent units for observed impacts
+## Data sources
 
-The automatic threshold derivation requires valid `No Impact`, `Low`, and `Moderate` forecast classes in columns `AG` and `X`.
+The analysis uses cyclone impact forecasts, post-event DDM damage records, Bangladesh ADM3 administrative boundaries, and fAPAR-derived agricultural impact information.
 
-# Data and licensing
+Data remain subject to the terms and conditions of their respective source organizations.
 
-Before publishing this repository publicly, verify redistribution rights for:
+## Citation
 
-- DDM post-disaster impact data
-- Bangladesh administrative boundary data
-- forecast impact datasets
-- externally derived hazard, exposure, and vulnerability datasets
+When using this repository for research or technical reporting, cite the repository version or Git commit used for the analysis.
 
-If redistribution is restricted, publish sample/template data and instructions for obtaining authorized source data rather than committing restricted datasets.
+## Status
 
-# Citation
-
-If this repository is used in research or operational analysis, cite the repository release/version used.
-
-A formal citation can be added once the repository has a DOI, archived release, or associated publication.
-
-# License
-
-Add an appropriate open-source software license before public release, such as:
-
-- MIT License
-- BSD 3-Clause License
-- Apache License 2.0
-
-The software license does not automatically grant redistribution rights for input datasets.
-
-# Notes
-
-The current workflow is structured around the forecast and DDM workbook formats used for Cyclones Remal, Sitrang, and Midhili.
-
-If future datasets use different sheet names, Excel column positions, administrative naming conventions, observed-impact fields, or forecast-class labels, update the configuration and data-loading logic while preserving the validation methodology.
+This repository contains a research workflow for cyclone impact-based forecast validation in Bangladesh.
