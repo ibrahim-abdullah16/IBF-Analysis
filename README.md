@@ -27,16 +27,6 @@ fixed formula, since the dominant physical driver (wind vs. rainfall vs. surge) 
 to storm. See [Reproducibility scope](#reproducibility-scope) for exactly what is and isn't
 scripted in this repository.
 
-**Forecasted impact, Cyclone Remal (Upazila level):**
-
-![Forecasted impact severity map for coastal Bangladesh at Upazila level - red indicates high forecasted impact, yellow moderate, light blue no/low impact, concentrated along the southwestern and south-central coastal belt](docs/images/impact_hitmap.png)
-
-Red/yellow/light-blue = high/moderate/no-impact forecast classes. Impact concentrates along the
-southwestern and south-central coastal belt, consistent with the manuscript's spatial results
-(Figure 4). This is one specific run's output map — check the file for which cyclone, sector,
-and lead time it corresponds to before citing it in the paper if that's not already fixed
-elsewhere in your figure set.
-
 ## Supported cases
 
 | Cyclone | Landfall | 1-day lead | 2-day lead | 3-day lead |
@@ -79,6 +69,14 @@ sample data shipped in `data/sample/remal/` — no external inputs required.
 **Severity calibration confusion matrices, Cyclone Remal, 24h lead time:**
 
 ![Four 4x4 confusion matrices comparing forecast severity classes against DDM-calibrated observed classes for household counts, house repair cost, agricultural land loss, and agricultural monetary loss](docs/images/example_severity_calibration.png)
+
+**Spatial verification, all three cyclones, all four damage variables:**
+
+![12-panel spatial verification grid: rows are Cyclone Remal, Midhili, and Sitrang, columns are Total No. of Houses Damaged, Total Monetary Loss of Houses, Total Agricultural Land Loss, and Total Agricultural Monetary Loss - each Upazila-level panel is colored green for Hit and red for False Alarm against DDM-observed damage, with a north arrow and scale bar](docs/images/impact_hitmap.jpeg)
+
+Upazila-level Hit (green) vs. False Alarm (red) classification for each of the three validated
+cyclones across all four damage variables, corresponding to the manuscript's spatial
+verification results (Figure 7).
 
 ## Results at a glance (from the manuscript)
 
