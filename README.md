@@ -10,13 +10,13 @@ Warning System for Africa and Asia) — Khan, Noor, Abdullah & Ahmed — submitt
 
 The framework integrates forecasted hazards (wind gust, rainfall, storm surge), baseline
 vulnerability (INFORM 2022), and sector-specific exposure (building footprints, Fraction of
-Absorbed Photosynthetically Active Radiation, fAPAR) into housing and agricultural **impact
+Absorbed Photosynthetically Active Radiation, fAPAR) into housing and Agriculturecultural **impact
 scores** across Bangladesh. Pre-landfall predictions at 24-hour, 48-hour, and 72-hour lead
 times were validated against Department of Disaster Management (DDM) observed damage records
 for Cyclones Remal, Midhili, and Sitrang.
 
 Housing discrimination proved reliable under severe cyclonic forcing but degraded substantially
-for lower-intensity events, while agricultural predictions gave more consistent separation
+for lower-intensity events, while Agriculturecultural predictions gave more consistent separation
 across all event types. Percentile-based threshold optimization resolved systemic
 over-forecasting across all events, and Quadratic-Weighted Kappa calibration of the observed
 records captured categorical impact significance. Real-world application during Cyclone Remal
@@ -37,7 +37,7 @@ sector-specific **composite impact score** for every Sub-National unit in coasta
   vulnerable-groups dimensions.
 - **Forecast hazard** — ECMWF IFS-HRES wind gust and rainfall; INCOIS ADCIRC+SWAN storm surge.
 - **Sector exposure** — Google–Microsoft building footprints (housing); Fraction of Absorbed
-  Photosynthetically Active Radiation (fAPAR) vegetation stress from MODIS/VIIRS (agriculture).
+  Photosynthetically Active Radiation (fAPAR) vegetation stress from MODIS/VIIRS (Agricultureculture).
 
 Hazard-component weights are assigned per event by meteorologist assessment rather than a
 fixed formula, since the dominant physical driver (wind vs. rainfall vs. surge) varies storm
@@ -77,7 +77,7 @@ sample data shipped in `data/sample/remal/` — no external inputs required.
 
 **Discrimination skill (ROC / AUC), Cyclone Remal, 24h lead time:**
 
-![ROC curves for four Remal damage variables, AUC 0.827 for both housing metrics and 0.649 for both agricultural metrics](docs/images/example_roc_auc.png)
+![ROC curves for four Remal damage variables, AUC 0.827 for both housing metrics and 0.649 for both Agriculturecultural metrics](docs/images/example_roc_auc.png)
 
 **No-Impact threshold optimization, Cyclone Remal, housing, 24h lead time:**
 
@@ -85,50 +85,37 @@ sample data shipped in `data/sample/remal/` — no external inputs required.
 
 **Severity calibration confusion matrices, Cyclone Remal, 24h lead time:**
 
-![Four 4x4 confusion matrices comparing forecast severity classes against DDM-calibrated observed classes for household counts, house repair cost, agricultural land loss, and agricultural monetary loss](docs/images/example_severity_calibration.png)
+![Four 4x4 confusion matrices comparing forecast severity classes against DDM-calibrated observed classes for household counts, house repair cost, Agriculturecultural land loss, and Agriculturecultural monetary loss](docs/images/example_severity_calibration.png)
 
 **Spatial verification, all three cyclones, all four damage variables:**
 
-![12-panel spatial verification grid: rows are Cyclone Remal, Midhili, and Sitrang, columns are Total No. of Houses Damaged, Total Monetary Loss of Houses, Total Agricultural Land Loss, and Total Agricultural Monetary Loss - each Sub-National-level panel is colored green for Hit and red for False Alarm against DDM-observed damage, with a north arrow and scale bar](docs/images/impact_hitmap.jpeg)
+![12-panel spatial verification grid: rows are Cyclone Remal, Midhili, and Sitrang, columns are Total No. of Houses Damaged, Total Monetary Loss of Houses, Total Agriculturecultural Land Loss, and Total Agriculturecultural Monetary Loss - each Sub-National-level panel is colored green for Hit and red for False Alarm against DDM-observed damage, with a north arrow and scale bar](docs/images/impact_hitmap.jpeg)
 
 Sub-National-level Hit (green) vs. False Alarm (red) classification for each of the three validated
 cyclones across all four damage variables, corresponding to the manuscript's spatial
 verification results (Figure 7).
 
-## Results at a glance (from the manuscript)
+## Results at a glance 
 
-| Cyclone | Housing AUC (24h) | Agriculture AUC (24h) | Peak Kappa (sector, lead time) | Off-category error |
-|---|---:|---:|---|---:|
-| Remal | 0.827 | 0.649 | +0.591 (housing, 48h) | ≤ 7.8% |
-| Midhili | 0.580 | 0.730 | +0.645 (agriculture, 24h) | ≤ 3.1% (housing), ≤ 2.0% (agri) |
-| Sitrang | 0.503 | 0.617 | +0.325 (agriculture, 24h) | ≤ 9.0% |
-
-Real-world deployment during Cyclone Remal (STEP anticipatory-action project) showed 58%
-early-warning reach vs. 36% in non-project areas, 49% vs. 92% damage incidence, and an
-estimated 15:1 return on investment. Full statistics, per-lead-time breakdowns, and confidence
-intervals are in the manuscript's Tables 1–4 and Supplementary Tables S1–S3.
-
-### Categorical severity classification detail (Cyclone Remal, Table 4b)
-
-Kappa and AUC measure discrimination and ranking; the table below is the direct evidence for
+The table below is the direct evidence for
 categorical impact prediction — how often the forecast severity class (No Impact / Low /
 Moderate / High) landed exactly on, one class away from, or more than one class away from the
-DDM-observed severity class, at each lead time.
+Department of Disaster Management's post event observed severity class, at each lead time.
 
 | Cyclone | Lead Time | Variable | n | Exact Match (n) | Exact Match (%) | Adjacent (n) | Within-1-Class (n) | Within-1-Class (%) | Off-Category Error (%) |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|
 | Remal | 24h | House: No. Damaged Households | 154 | 92 | 59.7% | 54 | 146 | 94.8% | 5.2% |
 | Remal | 24h | House: Repair Amount (BDT) | 154 | 89 | 57.8% | 56 | 145 | 94.2% | 5.8% |
-| Remal | 24h | Agri: Land Loss (ha) | 154 | 38 | 24.7% | 98 | 136 | 88.3% | 11.7% |
-| Remal | 24h | Agri: Loss Amount (BDT) | 154 | 51 | 33.1% | 92 | 143 | 92.9% | 7.1% |
+| Remal | 24h | Agriculture: Land Loss (ha) | 154 | 38 | 24.7% | 98 | 136 | 88.3% | 11.7% |
+| Remal | 24h | Agriculture: Loss Amount (BDT) | 154 | 51 | 33.1% | 92 | 143 | 92.9% | 7.1% |
 | Remal | 48h | House: No. Damaged Households | 154 | 99 | 64.3% | 49 | 148 | 96.1% | 3.9% |
 | Remal | 48h | House: Repair Amount (BDT) | 154 | 96 | 62.3% | 51 | 147 | 95.5% | 4.5% |
-| Remal | 48h | Agri: Land Loss (ha) | 154 | 54 | 35.1% | 84 | 138 | 89.6% | 10.4% |
-| Remal | 48h | Agri: Loss Amount (BDT) | 154 | 57 | 37.0% | 83 | 140 | 90.9% | 9.1% |
+| Remal | 48h | Agriculture: Land Loss (ha) | 154 | 54 | 35.1% | 84 | 138 | 89.6% | 10.4% |
+| Remal | 48h | Agriculture: Loss Amount (BDT) | 154 | 57 | 37.0% | 83 | 140 | 90.9% | 9.1% |
 | Remal | 72h | House: No. Damaged Households | 154 | 88 | 57.1% | 56 | 144 | 93.5% | 6.5% |
 | Remal | 72h | House: Repair Amount (BDT) | 154 | 88 | 57.1% | 56 | 144 | 93.5% | 6.5% |
-| Remal | 72h | Agri: Land Loss (ha) | 154 | 53 | 34.4% | 77 | 130 | 84.4% | 15.6% |
-| Remal | 72h | Agri: Loss Amount (BDT) | 154 | 57 | 37.0% | 75 | 132 | 85.7% | 14.3% |
+| Remal | 72h | Agriculture: Land Loss (ha) | 154 | 53 | 34.4% | 77 | 130 | 84.4% | 15.6% |
+| Remal | 72h | Agriculture: Loss Amount (BDT) | 154 | 57 | 37.0% | 75 | 132 | 85.7% | 14.3% |
 
 Within-1-Class agreement (exact + adjacent) stays at or above 84% for every Remal variable and
 lead time; housing reaches 93.5–96.1%. Off-category error — a forecast missing the true
