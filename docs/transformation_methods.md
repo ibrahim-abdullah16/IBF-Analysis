@@ -15,12 +15,12 @@ python scripts/transformation_comparison.py --cyclone remal --lead 1dlt
 ### Distributional assessment and choice of transformation
 
 Observed damage reported by the Department of Disaster Management is recorded
-at upazila level and is extremely right-skewed. Across the four impact
+at Sub-National level and is extremely right-skewed. Across the four impact
 variables used in this study, raw skewness ranges from 3.35 to 8.58 (mean
 5.09) and excess kurtosis from 14.5 to 111.2. The largest reported value
 exceeds the median by a factor of 189 for damaged houses and 1,006 for
 agricultural land lost. Shapiro–Wilk tests reject normality for every variable
-at p < 0.001. A small number of severely affected upazilas therefore dominate
+at p < 0.001. A small number of severely affected Sub-National units therefore dominate
 any analysis conducted on the raw scale, and an untransformed regression would
 be governed by a handful of high-leverage points rather than by the general
 relationship.
@@ -35,7 +35,7 @@ Shapiro–Wilk results are identical to the raw data. Neither addresses the
 problem, and both were excluded on that basis.
 
 **Box–Cox** requires strictly positive input. The DDM records contain 23
-upazilas with zero housing damage and 44 with zero agricultural loss, so
+Sub-National units with zero housing damage and 44 with zero agricultural loss, so
 application would require either an arbitrary additive constant or exclusion of
 all no-damage locations from the distributional assessment.
 
@@ -129,7 +129,7 @@ All twelve estimates fall within −0.037 to +0.241, mean |λ| = 0.088.
 `ddm_skewness_raw_vs_log.png`
 Histograms of the four DDM damage variables before and after the log
 transformation, annotated with skewness, excess kurtosis, the ratio of maximum
-to median, and the count of zero-damage upazilas.
+to median, and the count of zero-damage Sub-National units.
 
 `boxcox_lambda_stability.png`
 Fitted Box–Cox λ for each variable and cyclone against the λ = 0 reference.

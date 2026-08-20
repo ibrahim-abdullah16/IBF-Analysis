@@ -20,9 +20,9 @@ in `configs/<cyclone>.yaml` under `sheets.forecast`.
 
 | Column | Description |
 |---|---|
-| ADM3_PCODE | Administrative Level 3 / Upazila P-Code |
+| ADM3_PCODE | Administrative Level 3 / Sub-National P-Code |
 | District | District name |
-| Upazila | Upazila name |
+| Upazila | Sub-National unit name |
 
 ### Main forecast impact variables
 
@@ -60,7 +60,7 @@ Expected structure:
 | Excel Column | Variable | Description |
 |---|---|---|
 | A | District | District name |
-| B | Upazila | Upazila name |
+| B | Upazila | Sub-National unit name |
 | C | No_Brick | Number of affected brick houses |
 | D | No_HalfBrick | Number of affected semi-pucca/half-brick houses |
 | E | No_Raw | Number of affected raw/kutcha houses |
@@ -82,7 +82,7 @@ Expected structure:
 | Excel Column | Variable | Description |
 |---|---|---|
 | A | District | District name |
-| B | Upazila | Upazila name |
+| B | Upazila | Sub-National unit name |
 | C | Fully_Land | Fully damaged agricultural land |
 | D | Fully_Amt | Estimated loss from fully damaged crops |
 | E | Partial_Land | Partially damaged agricultural land |
@@ -95,13 +95,13 @@ skipped during processing.
 
 ## 3. Administrative Matching
 
-Forecast and observed datasets are matched at Upazila level.
+Forecast and observed datasets are matched at Sub-National level.
 
 Preferred identifier: `ADM3_PCODE`
 
 Where P-Code is unavailable in the observed dataset, matching is performed
-using `District + Upazila`. District and Upazila names are cleaned before
-matching by removing leading and trailing whitespace.
+using `District + Upazila`. District and Sub-National unit names are cleaned
+before matching by removing leading and trailing whitespace.
 
 ## 4. Missing Data
 
@@ -129,7 +129,7 @@ Administrative Level 3 boundary data are required for mapping.
 Expected location: `data/reference/bangladesh_adm3/`
 
 The boundary dataset must contain `ADM3_PCODE`, which is used to join
-forecast impact information with Upazila polygons.
+forecast impact information with Sub-National unit polygons.
 
 ## 7. fAPAR Before/After Rasters (optional preprocessing input)
 
@@ -142,7 +142,7 @@ data/sample/faapar/<cyclone>/after/*.tif    # one .tif, post-landfall
 
 Raw single-band GeoTIFFs, valid range 0-200, nodata 255, scale factor 0.005
 (applied on read). Processed by `scripts/fapar_zonal_stats.py <cyclone>` into
-per-Upazila fAPAR loss, written to `outputs/<cyclone>/FAPAR/`. This is a
+per-Sub-National-unit fAPAR loss, written to `outputs/<cyclone>/FAPAR/`. This is a
 preprocessing input, not required to run the validation workflow itself if
 `Norm_Impact_fAPAR` is already populated in the forecast workbook.
 
@@ -152,6 +152,6 @@ Not stored under `data/` - downloaded on demand from Google Earth Engine by
 `scripts/download_building_counts.py <country>` and written to
 `outputs/<country>/BuildingCounts/`. See `configs/earth_engine.yaml` for the
 boundary/building-dataset sources and one-time authentication setup. Produces
-district-level (not Upazila-level) counts; joining into the Upazila-level
+district-level (not Sub-National-level) counts; joining into the Sub-National-level
 workflow used here would require an additional spatial join, not performed
 by this script.

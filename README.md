@@ -1,26 +1,43 @@
 # IBF-Analysis
 
-**Multi-sector impact-based forecasting of cyclone damages across lead times in Bangladesh**
+**A multi-sector impact-forecasting framework for anticipatory action against tropical cyclones in Bangladesh**
 
-A reproducible Python workflow for validating a cyclone Impact-Based Forecasting (IBF)
-framework — integrating forecast hazards (wind gust, rainfall, storm surge), baseline
-vulnerability (INFORM), and sector exposure (building footprints, fAPAR) — against observed
-post-event damage at the Upazila level. This repository accompanies the manuscript
-*"Multi-sector impact-based forecasting of cyclone damages across lead times in Bangladesh"*
-(Khan, Noor, Abdullah & Ahmed), submitted to **npj Natural Hazards**.
+Anticipatory action against tropical cyclones requires reliable impact forecasts to guide
+pre-landfall resource mobilisation across vulnerable locations. This repository accompanies a
+manuscript developed by four researchers at **RIMES** (Regional Integrated Multi-Hazard Early
+Warning System for Africa and Asia) — Khan, Noor, Abdullah & Ahmed — submitted to
+**npj Natural Hazards**.
+
+The framework integrates forecasted hazards (wind gust, rainfall, storm surge), baseline
+vulnerability (INFORM 2022), and sector-specific exposure (building footprints, Fraction of
+Absorbed Photosynthetically Active Radiation, fAPAR) into housing and agricultural **impact
+scores** across Bangladesh. Pre-landfall predictions at 24-hour, 48-hour, and 72-hour lead
+times were validated against Department of Disaster Management (DDM) observed damage records
+for Cyclones Remal, Midhili, and Sitrang.
+
+Housing discrimination proved reliable under severe cyclonic forcing but degraded substantially
+for lower-intensity events, while agricultural predictions gave more consistent separation
+across all event types. Percentile-based threshold optimization resolved systemic
+over-forecasting across all events, and Quadratic-Weighted Kappa calibration of the observed
+records captured categorical impact significance. Real-world application during Cyclone Remal
+demonstrated that calibrated Sub-National-level predictions, embedded in a co-designed
+anticipatory action system, can meaningfully reduce pre-landfall damage incidence.
+
+This repository provides the reproducible Python workflow used to validate that framework
+against observed post-event damage at the Sub-National level.
 
 ![Framework overview: vulnerability, forecast hazard, and exposure combine into a composite impact score, which is validated through discrimination, threshold optimization, severity calibration, and spatial verification against DDM damage records](docs/images/framework_overview.png)
 
 ## What this framework does
 
 Pre-landfall forecasts (24h, 48h, 72h lead times) combine three inputs into a normalized,
-sector-specific **composite impact score** for every Upazila in coastal Bangladesh:
+sector-specific **composite impact score** for every Sub-National unit in coastal Bangladesh:
 
-- **Baseline vulnerability** — INFORM Risk Index (2022), Upazila-level socio-economic and
+- **Baseline vulnerability** — INFORM Risk Index (2022), Sub-National-level socio-economic and
   vulnerable-groups dimensions.
 - **Forecast hazard** — ECMWF IFS-HRES wind gust and rainfall; INCOIS ADCIRC+SWAN storm surge.
-- **Sector exposure** — Google–Microsoft building footprints (housing); fAPAR vegetation
-  stress from MODIS/VIIRS (agriculture).
+- **Sector exposure** — Google–Microsoft building footprints (housing); Fraction of Absorbed
+  Photosynthetically Active Radiation (fAPAR) vegetation stress from MODIS/VIIRS (agriculture).
 
 Hazard-component weights are assigned per event by meteorologist assessment rather than a
 fixed formula, since the dominant physical driver (wind vs. rainfall vs. surge) varies storm
@@ -47,7 +64,7 @@ post-event damage records through four complementary analyses:
   to set the No-Impact boundary
 - **Severity calibration:** cyclone-specific DDM severity classes selected by maximizing mean
   Quadratic-Weighted Cohen's Kappa across lead times; Exact / Adjacent / Off-category agreement
-- **Spatial verification:** Upazila-level Hit / Miss / False Alarm / True Negative mapping via
+- **Spatial verification:** Sub-National-level Hit / Miss / False Alarm / True Negative mapping via
   ADM3 P-Codes
 
 Continuous association (OLS, Pearson r, Spearman ρ, Kendall τ) is also reported on
@@ -72,9 +89,9 @@ sample data shipped in `data/sample/remal/` — no external inputs required.
 
 **Spatial verification, all three cyclones, all four damage variables:**
 
-![12-panel spatial verification grid: rows are Cyclone Remal, Midhili, and Sitrang, columns are Total No. of Houses Damaged, Total Monetary Loss of Houses, Total Agricultural Land Loss, and Total Agricultural Monetary Loss - each Upazila-level panel is colored green for Hit and red for False Alarm against DDM-observed damage, with a north arrow and scale bar](docs/images/impact_hitmap.jpeg)
+![12-panel spatial verification grid: rows are Cyclone Remal, Midhili, and Sitrang, columns are Total No. of Houses Damaged, Total Monetary Loss of Houses, Total Agricultural Land Loss, and Total Agricultural Monetary Loss - each Sub-National-level panel is colored green for Hit and red for False Alarm against DDM-observed damage, with a north arrow and scale bar](docs/images/impact_hitmap.jpeg)
 
-Upazila-level Hit (green) vs. False Alarm (red) classification for each of the three validated
+Sub-National-level Hit (green) vs. False Alarm (red) classification for each of the three validated
 cyclones across all four damage variables, corresponding to the manuscript's spatial
 verification results (Figure 7).
 
@@ -168,7 +185,7 @@ Two additional scripts prepare exposure inputs; neither is required to run the v
 workflow above if the forecast workbooks already contain `Norm_Impact_fAPAR` /
 `Norm_Impact_House`.
 
-**fAPAR zonal loss** (before/after landfall, per Upazila):
+**fAPAR zonal loss** (before/after landfall, per Sub-National unit):
 
 ```bash
 python scripts/fapar_zonal_stats.py remal
@@ -188,7 +205,7 @@ python scripts/download_building_counts.py "India" --export-drive   # large-coun
 One-time setup: set `project` in `configs/earth_engine.yaml` to a Google Cloud project with the
 Earth Engine API enabled, then run `earthengine authenticate` once. Writes
 `outputs/<country>/BuildingCounts/building_counts_by_district.{csv,xlsx}`. Produces
-**district-level** counts (FAO GAUL admin2), not Upazila-level — see
+**district-level** counts (FAO GAUL admin2), not Sub-National-level — see
 `docs/data_dictionary.md` §8.
 
 ## Reproducibility scope
