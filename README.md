@@ -4,8 +4,9 @@
 
 Anticipatory action against tropical cyclones requires reliable impact forecasts to guide
 pre-landfall resource mobilisation across vulnerable locations. This repository accompanies a
-manuscript developed by  researchers at **RIMES** (Regional Integrated Multi-Hazard Early
-Warning System for Africa and Asia)
+manuscript developed by four researchers at **RIMES** (Regional Integrated Multi-Hazard Early
+Warning System for Africa and Asia) — Khan, Noor, Abdullah & Ahmed — submitted to
+**npj Natural Hazards**.
 
 The framework integrates forecasted hazards (wind gust, rainfall, storm surge), baseline
 vulnerability (INFORM 2022), and sector-specific exposure (building footprints, Fraction of
@@ -106,6 +107,35 @@ Real-world deployment during Cyclone Remal (STEP anticipatory-action project) sh
 early-warning reach vs. 36% in non-project areas, 49% vs. 92% damage incidence, and an
 estimated 15:1 return on investment. Full statistics, per-lead-time breakdowns, and confidence
 intervals are in the manuscript's Tables 1–4 and Supplementary Tables S1–S3.
+
+### Categorical severity classification detail (Cyclone Remal, Table 4b)
+
+Kappa and AUC measure discrimination and ranking; the table below is the direct evidence for
+categorical impact prediction — how often the forecast severity class (No Impact / Low /
+Moderate / High) landed exactly on, one class away from, or more than one class away from the
+DDM-observed severity class, at each lead time.
+
+| Cyclone | Lead Time | Variable | n | Exact Match (n) | Exact Match (%) | Adjacent (n) | Within-1-Class (n) | Within-1-Class (%) | Off-Category Error (%) |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Remal | 24h | House: No. Damaged Households | 154 | 92 | 59.7% | 54 | 146 | 94.8% | 5.2% |
+| Remal | 24h | House: Repair Amount (BDT) | 154 | 89 | 57.8% | 56 | 145 | 94.2% | 5.8% |
+| Remal | 24h | Agri: Land Loss (ha) | 154 | 38 | 24.7% | 98 | 136 | 88.3% | 11.7% |
+| Remal | 24h | Agri: Loss Amount (BDT) | 154 | 51 | 33.1% | 92 | 143 | 92.9% | 7.1% |
+| Remal | 48h | House: No. Damaged Households | 154 | 99 | 64.3% | 49 | 148 | 96.1% | 3.9% |
+| Remal | 48h | House: Repair Amount (BDT) | 154 | 96 | 62.3% | 51 | 147 | 95.5% | 4.5% |
+| Remal | 48h | Agri: Land Loss (ha) | 154 | 54 | 35.1% | 84 | 138 | 89.6% | 10.4% |
+| Remal | 48h | Agri: Loss Amount (BDT) | 154 | 57 | 37.0% | 83 | 140 | 90.9% | 9.1% |
+| Remal | 72h | House: No. Damaged Households | 154 | 88 | 57.1% | 56 | 144 | 93.5% | 6.5% |
+| Remal | 72h | House: Repair Amount (BDT) | 154 | 88 | 57.1% | 56 | 144 | 93.5% | 6.5% |
+| Remal | 72h | Agri: Land Loss (ha) | 154 | 53 | 34.4% | 77 | 130 | 84.4% | 15.6% |
+| Remal | 72h | Agri: Loss Amount (BDT) | 154 | 57 | 37.0% | 75 | 132 | 85.7% | 14.3% |
+
+Within-1-Class agreement (exact + adjacent) stays at or above 84% for every Remal variable and
+lead time; housing reaches 93.5–96.1%. Off-category error — a forecast missing the true
+severity class by two or more levels — never exceeds 15.6%, and stays under 10% for both
+housing variables at all three lead times. Midhili and Sitrang show the same Exact/Adjacent/
+Off-Category structure at generally wider margins, consistent with the lower-intensity
+degradation described above; see the manuscript's Table 4b for the full breakdown.
 
 ## Repository structure
 
