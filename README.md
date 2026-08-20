@@ -4,9 +4,8 @@
 
 Anticipatory action against tropical cyclones requires reliable impact forecasts to guide
 pre-landfall resource mobilisation across vulnerable locations. This repository accompanies a
-manuscript developed by four researchers at **RIMES** (Regional Integrated Multi-Hazard Early
-Warning System for Africa and Asia) — Khan, Noor, Abdullah & Ahmed — submitted to
-**npj Natural Hazards**.
+manuscript developed by  researchers at **RIMES** (Regional Integrated Multi-Hazard Early
+Warning System for Africa and Asia)
 
 The framework integrates forecasted hazards (wind gust, rainfall, storm surge), baseline
 vulnerability (INFORM 2022), and sector-specific exposure (building footprints, Fraction of
