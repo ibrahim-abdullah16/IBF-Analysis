@@ -219,3 +219,14 @@ __marimo__/
 
 # Generated analysis outputs
 outputs/
+
+# Raw fAPAR before/after rasters - 40-360+ MB per cyclone, too large for a
+# normal git repo (and over GitHub's 100MB per-file hard limit for the
+# larger ones). Not redistributed here; see docs/data_dictionary.md §7 and
+# the fAPAR source in README.md "Data sources".
+data/sample/faapar/*/before/
+data/sample/faapar/*/after/
+
+# Leftover local Python bytecode cache
+scripts/__pycache__/
+

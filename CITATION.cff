@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+title: "IBF-Analysis: A reproducible workflow for validating cyclone Impact-Based Forecasts against observed damage in Bangladesh"
+type: software
+authors: Raihanul Haque Khan, Asif Bin Norr, Md.Ibrahim Abdullah, Raisa Islam
+repository-code: "https://github.com/ibrahim-abdullah16/IBF-Analysis"
+license: MIT
+version: "1.0.0"
+date-released: "2026-08-18"
+keywords:
+  - impact-based forecasting
+  - tropical cyclones
+  - anticipatory action
+  - disaster risk management
+  - Bangladesh
+preferred-citation:
+  type: article
+  title: "Multi-sector impact-based forecasting of cyclone damages across lead times in Bangladesh"
+
+  journal: "npj Natural Hazards"
+  year: 2026
+  # DOI/volume/issue/pages: fill in once the manuscript is accepted and published.

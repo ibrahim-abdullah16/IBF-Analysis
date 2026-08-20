@@ -2,13 +2,16 @@ cyclone:
   name: Remal
 
 data:
-  observed: data/sample/remal/Remal_ddm.xlsx
+  observed: data/sample/remal/Cyclone_Remal_Observed_Damage_Data.xlsx
   adm3_boundary: data/reference/bangladesh_adm3/bgd_admbnda_adm3_bbs_20201113.shp
 
   forecasts:
     1dlt: data/sample/remal/Forecasted_Impact_1dlt.xlsx
     2dlt: data/sample/remal/Forecasted_Impact_2dlt.xlsx
     3dlt: data/sample/remal/Forecasted_Impact_3dlt.xlsx
+
+fapar:
+  directory: data/sample/faapar/remal
 
 sheets:
   forecast: Remal

@@ -304,7 +304,8 @@ def classify_status(x):
 # ─────────────────────────────────────────────
 
 def process_event_folder(
-    event_folder
+    event_folder,
+    output_dir=None
 ):
 
     event_folder = Path(
@@ -313,6 +314,21 @@ def process_event_folder(
 
     event_name = (
         event_folder.name
+    )
+
+    # Where results are written.
+    # Default preserves the original behaviour (write next to the
+    # before/after rasters); pass output_dir to write elsewhere,
+    # e.g. outputs/<cyclone>/FAPAR/ so data/ stays input-only.
+    output_dir = (
+        Path(output_dir)
+        if output_dir is not None
+        else event_folder
+    )
+
+    output_dir.mkdir(
+        parents=True,
+        exist_ok=True
     )
 
     before_dir = (
@@ -598,12 +614,12 @@ def process_event_folder(
     # ─────────────────────────────────────────
 
     output_csv = (
-        event_folder
+        output_dir
         / "fapar_loss_by_upazila.csv"
     )
 
     output_excel = (
-        event_folder
+        output_dir
         / "fapar_loss_by_upazila.xlsx"
     )
 

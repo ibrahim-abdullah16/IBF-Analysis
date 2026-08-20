@@ -1,0 +1,69 @@
+# Earth Engine building-count download settings.
+# Used by scripts/download_building_counts.py.
+
+# ─────────────────────────────────────────────────────────────
+# 1. GOOGLE CLOUD / EARTH ENGINE PROJECT
+# ─────────────────────────────────────────────────────────────
+# Required by ee.Initialize() since Earth Engine moved to Cloud-project-based
+# access. Must be a Google Cloud project with the Earth Engine API enabled,
+# that your account (or the service account below) has access to.
+# https://console.cloud.google.com/ -> select/create a project -> enable
+# "Google Earth Engine API".
+project: "REPLACE_WITH_YOUR_GCP_PROJECT_ID"
+
+# ─────────────────────────────────────────────────────────────
+# 2. AUTHENTICATION
+# ─────────────────────────────────────────────────────────────
+# Two options:
+#
+# (a) Interactive (default, simplest for a single user on their own machine)
+#     Run once, manually, before using this script:
+#         earthengine authenticate
+#     or, from Python:
+#         python -c "import ee; ee.Authenticate()"
+#     This opens a browser sign-in and caches credentials locally. After
+#     that, download_building_counts.py just calls ee.Initialize(project=...)
+#     using the cached credentials - no need to repeat this per run.
+#
+# (b) Service account (for unattended / scheduled runs)
+#     Leave service_account and key_file blank to use interactive/cached
+#     credentials instead.
+service_account: ""          # e.g. "ibf-analysis@my-project.iam.gserviceaccount.com"
+key_file: ""                 # path to the service account's JSON key file
+
+# ─────────────────────────────────────────────────────────────
+# 3. DATASETS
+# ─────────────────────────────────────────────────────────────
+
+# Building footprints. Default is Google's Open Buildings V3 polygons -
+# already an Earth Engine public asset, no upload needed.
+# Coverage: Africa, Latin America & the Caribbean, South Asia, Southeast
+# Asia (includes Bangladesh). It does NOT cover, e.g., most of Europe,
+# North America, or East Asia - swap this asset ID if you need a country
+# outside that coverage (e.g. a sat-io per-country Microsoft Buildings
+# asset such as "projects/sat-io/open-datasets/MSBuildings/<Country>", if
+# one exists for that country in the community catalog).
+buildings_asset: "GOOGLE/Research/open-buildings/v3/polygons"
+
+# Country/admin boundaries. FAO GAUL 2015 (simplified geometry, level 2 =
+# district-equivalent) is used because it is already a global public EE
+# asset covering every country with a consistent schema - no need to
+# upload a country-specific shapefile as an EE asset first.
+boundary_asset: "FAO/GAUL_SIMPLIFIED_500m/2015/level2"
+boundary_country_property: "ADM0_NAME"     # UN country name
+boundary_admin1_property: "ADM1_NAME"      # division/state/province
+boundary_admin2_property: "ADM2_NAME"      # district-equivalent
+
+# ─────────────────────────────────────────────────────────────
+# 4. OUTPUT
+# ─────────────────────────────────────────────────────────────
+# Results are written to outputs/<country>/BuildingCounts/
+# (directory name is derived from the country argument; override the
+# parent folder here if needed)
+output_root: "outputs"
+
+# Note on scope: this produces DISTRICT-level (GAUL admin2) building
+# counts for any country. The rest of this repository's validation
+# workflow operates at Upazila (Bangladesh ADM3) level using
+# data/reference/bangladesh_adm3/ - joining these counts into that
+# workflow requires an additional spatial join step, not performed here.

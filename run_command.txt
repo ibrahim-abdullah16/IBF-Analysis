@@ -1,2 +1,11 @@
 python scripts\run_analysis.py cyclone name daylt
 example: python scripts\run_analysis.py midhili 1dlt
+
+python scripts\fapar_zonal_stats.py cyclone_name
+example: python scripts\fapar_zonal_stats.py midhili
+run every cyclone: python scripts\fapar_zonal_stats.py --all
+
+python scripts\download_building_counts.py "country name"
+example: python scripts\download_building_counts.py "Bangladesh"
+large country fallback (Google Drive export): python scripts\download_building_counts.py "India" --export-drive
+one-time setup: set project in configs\earth_engine.yaml, then run "earthengine authenticate"

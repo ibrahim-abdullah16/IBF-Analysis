@@ -1,8 +1,14 @@
+# For an exact, verified-working environment instead of these loose
+# constraints, use: pip install -r requirements-lock.txt
+
 # Core analysis
 numpy
 pandas
 scipy
-matplotlib
+matplotlib<3.9   # 3.9+ removed the `labels=` kwarg used by ax.boxplot()
+                 # in notebooks/01_remal_validation.ipynb (breaks class
+                 # boxplot generation) - pin until that call is updated
+                 # to `tick_labels=`.
 openpyxl
 
 # Spatial analysis / shapefile export
@@ -21,3 +27,6 @@ ipykernel
 # Optional: required by scripts/fapar_processing.py
 rasterio
 rasterstats
+
+# Optional: required by scripts/download_building_counts.py
+earthengine-api
