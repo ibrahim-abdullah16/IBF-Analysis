@@ -53,6 +53,67 @@ scripted in this repository.
 
 Lead-time identifiers used in the repository: `1dlt`, `2dlt`, `3dlt`.
 
+
+## Forecasted Impact Engine
+
+The repository includes `scripts/forecasted_impact_engine.py`, which prepares the forecast impact input workbook by integrating hazard, vulnerability, and exposure information at ADM3 (Upazila) level. fileciteturn30file0
+
+The engine matches all input datasets using ADM3 P-Codes and populates the operational forecast impact template.
+
+Integrated inputs:
+
+- **Wind gust forecast**
+  - Extracts the maximum value from the first forecast records for each ADM3 P-Code.
+  - Converts wind speed from m/s to km/h.
+
+- **Rainfall forecast**
+  - Calculates accumulated rainfall from forecast differences.
+  - Converts accumulated water depth to millimetres.
+
+- **Storm surge forecast**
+  - Matches storm surge values by ADM3 P-Code.
+
+- **Vulnerability**
+  - Integrates the vulnerability index values by ADM3 P-Code.
+
+- **Agriculture exposure**
+  - Integrates fAPAR-based exposure indicators.
+
+- **Housing exposure**
+  - Integrates building count information.
+
+The generated file is:
+
+```text
+outputs/
+└── Forecasted_Impact.xlsx
+```
+
+### Running the impact engine
+
+From the repository root:
+
+```bash
+python scripts/forecasted_impact_engine.py
+```
+
+Before running, ensure the required sample input files are available:
+
+```text
+data/sample/impact forecast data sample/
+
+├── windgust.xlsx
+├── rainfall.xlsx
+├── stormsurge.xlsx
+├── vulnerability.xlsx
+├── faapar.xlsx
+├── building_count.xlsx
+└── Forecasted_Impact_Dummy.xlsx
+```
+
+The script reports the number of available records and successful ADM3 P-Code matches for each input variable before saving the final forecast impact workbook. fileciteturn30file0
+
+
 ## Validation suite
 
 Forecast impact scores are validated against Department of Disaster Management (DDM)
@@ -225,14 +286,14 @@ Earth Engine API enabled, then run `earthengine authenticate` once. Writes
 
 ## Reproducibility scope
 
-This repository reproduces the **statistical validation and calibration** reported in the
-manuscript (discrimination, threshold optimization, severity calibration, spatial
-verification), and includes scripted preprocessing for two of the three exposure inputs
-(fAPAR zonal loss, building counts by district). It does **not** include the step that
-combines vulnerability, forecast hazard, and exposure into the composite impact score `Im`
-itself — that step incorporates a meteorologist-assessed dynamic weighting decision described
-in the Methods section rather than a fixed algorithm, and is not automated in the released
-code.
+This repository reproduces the statistical validation and calibration reported in the
+manuscript (discrimination, threshold optimization, severity calibration, and spatial
+verification). In addition, `scripts/forecasted_impact_engine.py` provides the preprocessing
+workflow that integrates forecast hazards, vulnerability, and exposure inputs into the
+forecast impact workbook. fileciteturn30file0
+
+The final composite impact calculation and event-specific hazard weighting approach should be
+interpreted according to the methodology described in the manuscript.
 
 ## Data sources
 
