@@ -1,0 +1,545 @@
+﻿ADM1_EN,ADM2_EN,ADM3_EN,ADM3_PCODE,ValidPix_Before,ValidPix_After,FAPAR_Before,FAPAR_After,FAPAR_Loss,FAPAR_Loss_Pct,Status,QA_Flag
+Chittagong,Bandarban,Ruma,BD200391,3020,3020,0.4618,0.01,0.4518,97.83,Loss,OK
+Chittagong,Bandarban,Rowangchhari,BD200389,2118,2118,0.4608,0.01,0.4508,97.83,Loss,OK
+Chittagong,Rangamati,Belai Chhari,BD208429,4518,4596,0.4576,0.0099,0.4477,97.84,Loss,OK
+Chittagong,Bandarban,Alikadam,BD200304,3423,3423,0.4564,0.01,0.4464,97.81,Loss,OK
+Chittagong,Bandarban,Thanchi,BD200395,4723,4723,0.456,0.01,0.446,97.81,Loss,OK
+Chittagong,Rangamati,Jurai Chhari,BD208447,1866,1923,0.4556,0.0099,0.4457,97.83,Loss,OK
+Chittagong,Khagrachhari,Lakshmichhari,BD204661,969,969,0.4542,0.01,0.4442,97.8,Loss,OK
+Chittagong,Rangamati,Kawkhali (Betbunia),BD208425,1039,1039,0.451,0.01,0.441,97.78,Loss,OK
+Chittagong,Rangamati,Barkal,BD208421,2557,2886,0.447,0.0094,0.4376,97.9,Loss,OK
+Chittagong,Bandarban,Bandarban Sadar,BD200314,1953,1953,0.4467,0.01,0.4367,97.76,Loss,OK
+Chittagong,Rangamati,Rangamati Sadar,BD208487,1804,2586,0.4445,0.0085,0.436,98.09,Loss,OK
+Chittagong,Rangamati,Kaptai,BD208436,929,977,0.4449,0.0098,0.4351,97.8,Loss,OK
+Chittagong,Rangamati,Baghai Chhari,BD208407,6977,7160,0.4442,0.0099,0.4343,97.77,Loss,OK
+Chittagong,Rangamati,Rajasthali,BD208478,653,653,0.4436,0.01,0.4336,97.75,Loss,OK
+Chittagong,Bandarban,Naikhongchhari,BD200373,2076,2076,0.443,0.01,0.433,97.74,Loss,OK
+Chittagong,Khagrachhari,Dighinala,BD204643,3969,3970,0.4402,0.01,0.4302,97.73,Loss,OK
+Chittagong,Bandarban,Lama,BD200351,2824,2824,0.4352,0.01,0.4252,97.7,Loss,OK
+Chittagong,Rangamati,Naniarchar,BD208475,1247,1424,0.4343,0.0094,0.4249,97.84,Loss,OK
+Chittagong,Rangamati,Langadu,BD208458,1574,2182,0.4282,0.0086,0.4196,97.99,Loss,OK
+Khulna,Bagerhat,Mongla,BD400158,3480,5605,0.4264,0.0081,0.4183,98.1,Loss,OK
+Chittagong,Khagrachhari,Panchhari,BD204677,1693,1693,0.4282,0.01,0.4182,97.66,Loss,OK
+Chittagong,Khagrachhari,Ramgarh,BD204680,1090,1090,0.4241,0.01,0.4141,97.64,Loss,OK
+Chittagong,Khagrachhari,Mahalchhari,BD204665,1002,1033,0.4236,0.0098,0.4138,97.69,Loss,OK
+Khulna,Bagerhat,Sarankhola,BD400177,2386,2979,0.4219,0.009,0.4129,97.87,Loss,OK
+Chittagong,Khagrachhari,Matiranga,BD204670,2041,2041,0.4179,0.01,0.4079,97.61,Loss,OK
+Chittagong,Khagrachhari,Khagrachhari Sadar,BD204649,1217,1227,0.4178,0.01,0.4078,97.61,Loss,OK
+Khulna,Khulna,Dacope,BD404717,2060,3451,0.4087,0.008,0.4007,98.04,Loss,OK
+Chittagong,Cox's Bazar,Teknaf,BD202290,1053,1378,0.4063,0.0088,0.3975,97.83,Loss,OK
+Chittagong,Khagrachhari,Manikchhari,BD204667,596,596,0.4061,0.01,0.3961,97.54,Loss,OK
+Barisal,Bhola,Daulatkhan,BD100929,378,483,0.4014,0.0089,0.3925,97.78,Loss,OK
+Barisal,Barguna,Bamna,BD100419,357,443,0.4006,0.009,0.3916,97.75,Loss,OK
+Sylhet,Maulvibazar,Kamalganj,BD605856,1866,1866,0.3993,0.01,0.3893,97.5,Loss,OK
+Khulna,Khulna,Koyra,BD404753,2026,5536,0.3958,0.0068,0.389,98.28,Loss,OK
+Barisal,Jhalokati,Kanthalia,BD104243,655,699,0.3986,0.0097,0.3889,97.57,Loss,OK
+Barisal,Jhalokati,Rajapur,BD104284,662,698,0.3978,0.0097,0.3881,97.56,Loss,OK
+Barisal,Pirojpur,Zianagar,BD107990,357,442,0.3949,0.009,0.3859,97.72,Loss,OK
+Chittagong,Chittagong,Boalkhali,BD201512,551,575,0.3957,0.0098,0.3859,97.52,Loss,OK
+Chittagong,Chittagong,Chandanaish,BD201518,882,889,0.3952,0.01,0.3852,97.47,Loss,OK
+Chittagong,Cox's Bazar,Ramu,BD202266,1678,1703,0.3938,0.0099,0.3839,97.49,Loss,OK
+Chittagong,Lakshmipur,Roypur,BD205158,813,866,0.3932,0.0097,0.3835,97.53,Loss,OK
+Barisal,Pirojpur,Mathbaria,BD107958,1404,1539,0.3923,0.0096,0.3827,97.55,Loss,OK
+Barisal,Pirojpur,Bhandaria,BD107914,623,719,0.3906,0.0093,0.3813,97.62,Loss,OK
+Barisal,Barguna,Betagi,BD100447,641,733,0.3906,0.0094,0.3812,97.59,Loss,OK
+Chittagong,Chittagong,Fatikchhari,BD201533,3333,3340,0.3912,0.01,0.3812,97.44,Loss,OK
+Sylhet,Habiganj,Chunarughat,BD603626,2121,2121,0.3905,0.01,0.3805,97.44,Loss,OK
+Barisal,Bhola,Lalmohan,BD100954,1072,1187,0.3896,0.0095,0.3801,97.56,Loss,OK
+Barisal,Bhola,Burhanuddin,BD100921,816,995,0.3889,0.0092,0.3797,97.63,Loss,OK
+Barisal,Barguna,Barguna Sadar,BD100428,1334,1430,0.3893,0.0097,0.3796,97.51,Loss,OK
+Chittagong,Chittagong,Sitakunda,BD201586,1020,1166,0.3886,0.0094,0.3792,97.58,Loss,OK
+Barisal,Barguna,Amtali,BD100409,2140,2270,0.3874,0.0097,0.3777,97.5,Loss,OK
+Barisal,Barguna,Patharghata,BD100485,888,1055,0.3859,0.0092,0.3767,97.62,Loss,OK
+Chittagong,Cox's Bazar,Ukhia,BD202294,1042,1133,0.3862,0.0096,0.3766,97.51,Loss,OK
+Barisal,Pirojpur,Pirojpur Sadar,BD107980,647,722,0.385,0.0095,0.3755,97.53,Loss,OK
+Barisal,Bhola,Bhola Sadar,BD100918,1086,1423,0.3843,0.0088,0.3755,97.71,Loss,OK
+Barisal,Patuakhali,Mirzaganj,BD107876,665,773,0.3846,0.0093,0.3753,97.58,Loss,OK
+Chittagong,Chittagong,Hathazari,BD201537,991,1002,0.3847,0.0099,0.3748,97.43,Loss,OK
+Barisal,Patuakhali,Patuakhali Sadar,BD107895,1427,1609,0.3833,0.0094,0.3739,97.55,Loss,OK
+Chittagong,Chittagong,Patiya,BD201561,1268,1314,0.3828,0.0098,0.373,97.44,Loss,OK
+Barisal,Pirojpur,Kawkhali,BD107947,298,354,0.3816,0.0092,0.3724,97.59,Loss,OK
+Chittagong,Chittagong,Lohagara,BD201547,1130,1131,0.381,0.01,0.371,97.38,Loss,OK
+Chittagong,Chittagong,Satkania,BD201582,1192,1202,0.381,0.01,0.371,97.38,Loss,OK
+Chittagong,Lakshmipur,Lakshmipur Sadar,BD205143,1943,2070,0.3779,0.0097,0.3682,97.43,Loss,OK
+Barisal,Patuakhali,Bauphal,BD107838,1707,1949,0.3772,0.0094,0.3678,97.51,Loss,OK
+Sylhet,Maulvibazar,Kulaura,BD605865,2189,2302,0.3762,0.0098,0.3664,97.4,Loss,OK
+Sylhet,Maulvibazar,Juri,BD605835,925,1091,0.3753,0.0092,0.3661,97.55,Loss,OK
+Sylhet,Maulvibazar,Sreemangal,BD605883,1785,1927,0.3756,0.0096,0.366,97.44,Loss,OK
+Sylhet,Maulvibazar,Barlekha,BD605814,1460,1722,0.3745,0.0092,0.3653,97.54,Loss,OK
+Chittagong,Chittagong,Raozan,BD201574,1053,1054,0.3752,0.01,0.3652,97.33,Loss,OK
+Barisal,Patuakhali,Dumki,BD107855,328,414,0.3741,0.009,0.3651,97.59,Loss,OK
+Barisal,Pirojpur,Nesarabad (Swarupkati),BD107987,745,819,0.3739,0.0095,0.3644,97.46,Loss,OK
+Barisal,Bhola,Char Fasson,BD100925,2250,2985,0.3722,0.0088,0.3634,97.64,Loss,OK
+Barisal,Jhalokati,Jhalokati Sadar,BD104240,844,882,0.3722,0.0098,0.3624,97.37,Loss,OK
+Chittagong,Chittagong,Rangunia,BD201570,1448,1493,0.3722,0.0098,0.3624,97.37,Loss,OK
+Barisal,Patuakhali,Dashmina,BD107852,822,982,0.3711,0.0092,0.3619,97.52,Loss,OK
+Barisal,Barisal,Bakerganj,BD100607,1468,1649,0.3705,0.0095,0.361,97.44,Loss,OK
+Chittagong,Chittagong,Mirsharai,BD201553,1931,2023,0.3708,0.0099,0.3609,97.33,Loss,OK
+Chittagong,Chittagong,Banshkhali,BD201508,1399,1539,0.3694,0.0096,0.3598,97.4,Loss,OK
+Chittagong,Chandpur,Faridganj,BD201345,1027,1065,0.3659,0.0098,0.3561,97.32,Loss,OK
+Chittagong,Noakhali,Noakhali Sadar (Sudharam),BD207587,1596,1639,0.3644,0.0099,0.3545,97.28,Loss,OK
+Barisal,Jhalokati,Nalchity,BD104273,889,972,0.3638,0.0096,0.3542,97.36,Loss,OK
+Chittagong,Chittagong,Bayejid Bostami,BD201506,136,188,0.3627,0.0086,0.3541,97.63,Loss,OK
+Chittagong,Lakshmipur,Kamalnagar,BD205133,792,980,0.3616,0.0102,0.3514,97.18,Loss,OK
+Chittagong,Chittagong,Anowara,BD201504,570,649,0.3594,0.0094,0.35,97.38,Loss,OK
+Chittagong,Noakhali,Chatkhil,BD207510,560,606,0.3568,0.0096,0.3472,97.31,Loss,OK
+Chittagong,Feni,Daganbhuiyan,BD203025,628,630,0.3571,0.01,0.3471,97.2,Loss,OK
+Barisal,Barisal,Babuganj,BD100603,614,702,0.3547,0.0094,0.3453,97.35,Loss,OK
+Chittagong,Comilla,Comilla Sadar Dakshin,BD201933,1167,1168,0.3545,0.01,0.3445,97.18,Loss,OK
+Barisal,Bhola,Manpura,BD100965,379,778,0.3517,0.0076,0.3441,97.84,Loss,OK
+Barisal,Patuakhali,Galachipa,BD107857,2988,3823,0.3518,0.0089,0.3429,97.47,Loss,OK
+Khulna,Satkhira,Shyamnagar,BD408786,1838,6775,0.3488,0.0064,0.3424,98.17,Loss,OK
+Chittagong,Feni,Feni Sadar,BD203029,921,951,0.3508,0.0098,0.341,97.21,Loss,OK
+Chittagong,Comilla,Barura,BD201909,1076,1076,0.3506,0.01,0.3406,97.15,Loss,OK
+Chittagong,Cox's Bazar,Chakaria,BD202216,1550,2095,0.3479,0.0087,0.3392,97.5,Loss,OK
+Dhaka,Tangail,Madhupur,BD309357,1631,1636,0.3472,0.01,0.3372,97.12,Loss,OK
+Chittagong,Lakshmipur,Ramganj,BD205165,751,784,0.347,0.0098,0.3372,97.18,Loss,OK
+Chittagong,Feni,Chhagalnaiya,BD203014,610,612,0.3458,0.01,0.3358,97.11,Loss,OK
+Chittagong,Feni,Parshuram,BD203051,447,447,0.3455,0.01,0.3355,97.11,Loss,OK
+Chittagong,Lakshmipur,Ramgati,BD205173,602,794,0.3455,0.01,0.3355,97.11,Loss,OK
+Chittagong,Noakhali,Hatiya,BD207536,1963,2917,0.3439,0.009,0.3349,97.38,Loss,OK
+Barisal,Barisal,Mehendiganj,BD100662,961,1279,0.3432,0.0088,0.3344,97.44,Loss,OK
+Dhaka,Narsingdi,Belabo,BD306807,544,546,0.344,0.01,0.334,97.09,Loss,OK
+Chittagong,Noakhali,Kabirhat,BD207547,579,604,0.343,0.0098,0.3332,97.14,Loss,OK
+Sylhet,Habiganj,Madhabpur,BD603671,1317,1317,0.3417,0.01,0.3317,97.07,Loss,OK
+Barisal,Patuakhali,Kala Para,BD107866,1784,1950,0.3406,0.0096,0.331,97.18,Loss,OK
+Chittagong,Feni,Fulgazi,BD203041,441,441,0.3406,0.01,0.3306,97.06,Loss,OK
+Chittagong,Noakhali,Subarnachar,BD207585,1844,2245,0.3397,0.0096,0.3301,97.17,Loss,OK
+Chittagong,Cox's Bazar,Maheshkhali,BD202249,610,1360,0.3373,0.0073,0.33,97.84,Loss,OK
+Chittagong,Chittagong,Khulshi,BD201543,8,57,0.335,0.0057,0.3293,98.3,Loss,OK
+Dhaka,Kishoreganj,Kuliar Char,BD304854,446,454,0.3392,0.0099,0.3293,97.08,Loss,OK
+Barisal,Barisal,Barisal Sadar (Kotwali),BD100651,1101,1285,0.3386,0.0093,0.3293,97.25,Loss,OK
+Barisal,Bhola,Tazumuddin,BD100991,464,711,0.337,0.0089,0.3281,97.36,Loss,OK
+Chittagong,Comilla,Chauddagram,BD201931,1228,1228,0.3363,0.01,0.3263,97.03,Loss,OK
+Sylhet,Maulvibazar,Rajnagar,BD605880,1276,1495,0.3325,0.0093,0.3232,97.2,Loss,OK
+Dhaka,Narsingdi,Shibpur,BD306876,933,951,0.3322,0.0099,0.3223,97.02,Loss,OK
+Chittagong,Cox's Bazar,Cox's Bazar Sadar,BD202224,704,914,0.3307,0.0089,0.3218,97.31,Loss,OK
+Chittagong,Feni,Sonagazi,BD203094,867,915,0.3317,0.0099,0.3218,97.02,Loss,OK
+Sylhet,Habiganj,Bahubal,BD603605,1167,1177,0.3318,0.01,0.3218,96.99,Loss,OK
+Chittagong,Noakhali,Senbagh,BD207580,712,713,0.3305,0.01,0.3205,96.97,Loss,OK
+Barisal,Barisal,Banari Para,BD100610,522,581,0.3295,0.0095,0.32,97.12,Loss,OK
+Barisal,Barisal,Muladi,BD100669,808,978,0.329,0.0091,0.3199,97.23,Loss,OK
+Chittagong,Comilla,Nangalkot,BD201987,1026,1033,0.3294,0.01,0.3194,96.96,Loss,OK
+Chittagong,Comilla,Brahman Para,BD201915,581,581,0.3294,0.01,0.3194,96.96,Loss,OK
+Chittagong,Chandpur,Chandpur Sadar,BD201322,633,759,0.3275,0.0092,0.3183,97.19,Loss,OK
+Chittagong,Comilla,Burichang,BD201918,721,724,0.3279,0.01,0.3179,96.95,Loss,OK
+Dhaka,Tangail,Sakhipur,BD309385,1944,1949,0.3268,0.01,0.3168,96.94,Loss,OK
+Sylhet,Sylhet,Golabganj,BD609138,1169,1237,0.3254,0.0097,0.3157,97.02,Loss,OK
+Mymensingh,Jamalpur,Melandaha,BD453961,1169,1181,0.325,0.0099,0.3151,96.95,Loss,OK
+Barisal,Barisal,Gaurnadi,BD100632,656,657,0.3245,0.01,0.3145,96.92,Loss,OK
+Dhaka,Narsingdi,Manohardi,BD306852,872,872,0.3245,0.01,0.3145,96.92,Loss,OK
+Chittagong,Brahamanbaria,Kasba,BD201263,944,947,0.3239,0.01,0.3139,96.91,Loss,OK
+Barisal,Barisal,Hizla,BD100636,578,870,0.3222,0.0084,0.3138,97.39,Loss,OK
+Sylhet,Sylhet,Beani Bazar,BD609117,1058,1110,0.3233,0.0098,0.3135,96.97,Loss,OK
+Chittagong,Comilla,Debidwar,BD201940,1066,1066,0.3232,0.01,0.3132,96.91,Loss,OK
+Sylhet,Sylhet,Zakiganj,BD609194,1127,1176,0.3225,0.0098,0.3127,96.96,Loss,OK
+Sylhet,Maulvibazar,Maulvi Bazar Sadar,BD605874,1547,1566,0.3222,0.0099,0.3123,96.93,Loss,OK
+Rangpur,Gaibandha,Sadullapur,BD553282,1047,1049,0.3215,0.01,0.3115,96.89,Loss,OK
+Chittagong,Brahamanbaria,Ashuganj,BD201233,281,322,0.3209,0.0094,0.3115,97.07,Loss,OK
+Rajshahi,Naogaon,Mahadebpur,BD506450,1703,1736,0.3192,0.0099,0.3093,96.9,Loss,OK
+Chittagong,Noakhali,Companiganj,BD207521,1059,1268,0.3186,0.0096,0.309,96.99,Loss,OK
+Chittagong,Comilla,Comilla Adarsha Sadar,BD201967,461,536,0.3168,0.0093,0.3075,97.06,Loss,OK
+Chittagong,Chittagong,Sandwip,BD201578,975,1474,0.3138,0.0085,0.3053,97.29,Loss,OK
+Rajshahi,Naogaon,Patnitala,BD506475,1713,1735,0.3148,0.0099,0.3049,96.86,Loss,OK
+Chittagong,Comilla,Chandina,BD201927,891,893,0.3148,0.01,0.3048,96.82,Loss,OK
+Rajshahi,Naogaon,Badalgachhi,BD506406,941,950,0.3146,0.01,0.3046,96.82,Loss,OK
+Chittagong,Noakhali,Begumganj,BD207507,948,1046,0.3133,0.0095,0.3038,96.97,Loss,OK
+Mymensingh,Mymensingh,Ishwarganj,BD456131,1235,1247,0.3135,0.01,0.3035,96.81,Loss,OK
+Mymensingh,Sherpur,Sreebardi,BD458990,1151,1154,0.3135,0.01,0.3035,96.81,Loss,OK
+Sylhet,Sylhet,Dakshin Surma,BD609131,801,855,0.313,0.0097,0.3033,96.9,Loss,OK
+Rajshahi,Natore,Bagati Para,BD506909,616,616,0.313,0.01,0.303,96.81,Loss,OK
+Sylhet,Sylhet,Bishwanath,BD609120,929,939,0.3121,0.0099,0.3022,96.83,Loss,OK
+Chittagong,Cox's Bazar,Pekua,BD202256,388,605,0.3095,0.0082,0.3013,97.35,Loss,OK
+Dhaka,Gazipur,Kapasia,BD303336,1525,1582,0.311,0.0098,0.3012,96.85,Loss,OK
+Rangpur,Gaibandha,Palashbari,BD553267,841,845,0.3109,0.01,0.3009,96.78,Loss,OK
+Dhaka,Tangail,Dhanbari,BD309325,575,579,0.3105,0.01,0.3005,96.78,Loss,OK
+Dhaka,Gazipur,Sreepur,BD303386,2064,2082,0.3104,0.01,0.3004,96.78,Loss,OK
+Rangpur,Dinajpur,Nawabganj,BD552769,1432,1434,0.3104,0.01,0.3004,96.78,Loss,OK
+Mymensingh,Jamalpur,Madarganj,BD453958,1047,1053,0.3103,0.01,0.3003,96.78,Loss,OK
+Rajshahi,Naogaon,Dhamoirhat,BD506428,1371,1371,0.3101,0.01,0.3001,96.78,Loss,OK
+Khulna,Kushtia,Mirpur,BD405094,1319,1385,0.3096,0.0098,0.2998,96.83,Loss,OK
+Rajshahi,Sirajganj,Kamarkhanda,BD508844,421,421,0.3097,0.01,0.2997,96.77,Loss,OK
+Rajshahi,Rajshahi,Charghat,BD508125,710,796,0.309,0.0095,0.2995,96.93,Loss,OK
+Chittagong,Chandpur,Matlab Uttar,BD201379,927,1195,0.3084,0.0089,0.2995,97.11,Loss,OK
+Khulna,Jhenaidah,Shailkupa,BD404480,1659,1662,0.3082,0.01,0.2982,96.76,Loss,OK
+Dhaka,Tangail,Ghatail,BD309328,2026,2030,0.308,0.01,0.298,96.75,Loss,OK
+Mymensingh,Sherpur,Sherpur Sadar,BD458988,1560,1608,0.3076,0.0099,0.2977,96.78,Loss,OK
+Chittagong,Noakhali,Sonaimuri,BD207583,724,777,0.3074,0.0097,0.2977,96.84,Loss,OK
+Mymensingh,Jamalpur,Jamalpur Sadar,BD453936,2170,2220,0.3072,0.0099,0.2973,96.78,Loss,OK
+Sylhet,Sylhet,Fenchuganj,BD609135,413,507,0.3064,0.0091,0.2973,97.03,Loss,OK
+Sylhet,Habiganj,Habiganj Sadar,BD603644,1060,1077,0.3067,0.0099,0.2968,96.77,Loss,OK
+Rangpur,Rangpur,Pirganj,BD558576,1837,1845,0.3066,0.01,0.2966,96.74,Loss,OK
+Sylhet,Sylhet,Jaintiapur,BD609153,1207,1222,0.3058,0.0099,0.2959,96.76,Loss,OK
+Sylhet,Sylhet,Kanaighat,BD609159,1782,1800,0.3057,0.0099,0.2958,96.76,Loss,OK
+Khulna,Khulna,Paikgachha,BD404764,544,1682,0.3021,0.0066,0.2955,97.82,Loss,OK
+Rajshahi,Naogaon,Raninagar,BD506485,1036,1105,0.3051,0.0097,0.2954,96.82,Loss,OK
+Mymensingh,Jamalpur,Sarishabari,BD453985,1136,1220,0.3047,0.0097,0.295,96.82,Loss,OK
+Mymensingh,Sherpur,Jhenaigati,BD458937,928,938,0.3047,0.0099,0.2948,96.75,Loss,OK
+Mymensingh,Mymensingh,Phulpur,BD456181,2542,2551,0.3048,0.01,0.2948,96.72,Loss,OK
+Dhaka,Kishoreganj,Bajitpur,BD304806,489,844,0.3023,0.0079,0.2944,97.39,Loss,OK
+Dhaka,Narsingdi,Roypura,BD306864,1106,1415,0.303,0.0089,0.2941,97.06,Loss,OK
+Khulna,Jessore,Chaugachha,BD404111,1186,1227,0.3032,0.0098,0.2934,96.77,Loss,OK
+Mymensingh,Sherpur,Nalitabari,BD458970,1467,1468,0.3033,0.01,0.2933,96.7,Loss,OK
+Rajshahi,Bogra,Nandigram,BD501067,1161,1185,0.3031,0.0099,0.2932,96.73,Loss,OK
+Dhaka,Kishoreganj,Pakundia,BD304879,781,786,0.3027,0.01,0.2927,96.7,Loss,OK
+Rajshahi,Natore,Baraigram,BD506915,1332,1345,0.3026,0.01,0.2926,96.7,Loss,OK
+Rangpur,Gaibandha,Gaibandha Sadar,BD553224,1184,1444,0.3017,0.0091,0.2926,96.98,Loss,OK
+Mymensingh,Mymensingh,Haluaghat,BD456124,1596,1600,0.3026,0.01,0.2926,96.7,Loss,OK
+Sylhet,Sylhet,Sylhet Sadar,BD609162,1300,1428,0.302,0.0096,0.2924,96.82,Loss,OK
+Barisal,Pirojpur,Nazirpur,BD107976,920,1000,0.3015,0.0096,0.2919,96.82,Loss,OK
+Chittagong,Chandpur,Kachua,BD201358,1008,1008,0.3014,0.01,0.2914,96.68,Loss,OK
+Rajshahi,Bogra,Gabtali,BD501040,1099,1099,0.3013,0.01,0.2913,96.68,Loss,OK
+Mymensingh,Mymensingh,Gauripur,BD456123,1272,1274,0.3009,0.01,0.2909,96.68,Loss,OK
+Rajshahi,Naogaon,Sapahar,BD506486,1048,1099,0.3007,0.0098,0.2909,96.74,Loss,OK
+Chittagong,Comilla,Laksam,BD201972,673,676,0.3008,0.01,0.2908,96.68,Loss,OK
+Mymensingh,Netrakona,Barhatta,BD457209,1010,1037,0.3006,0.0099,0.2907,96.71,Loss,OK
+Rajshahi,Pabna,Atgharia,BD507605,836,838,0.3004,0.01,0.2904,96.67,Loss,OK
+Rajshahi,Nawabganj,Nachole,BD507056,1249,1266,0.3,0.0099,0.2901,96.7,Loss,OK
+Rangpur,Dinajpur,Dinajpur Sadar,BD552764,1526,1613,0.2997,0.0097,0.29,96.76,Loss,OK
+Rangpur,Dinajpur,Biral,BD552717,1535,1592,0.2997,0.0098,0.2899,96.73,Loss,OK
+Rajshahi,Pabna,Ishwardi,BD507639,1051,1195,0.2993,0.0095,0.2898,96.83,Loss,OK
+Khulna,Bagerhat,Morrelganj,BD400160,1720,1956,0.2989,0.0094,0.2895,96.86,Loss,OK
+Khulna,Khulna,Batiaghata,BD404712,870,1031,0.2985,0.0092,0.2893,96.92,Loss,OK
+Rangpur,Dinajpur,Fulbari,BD552738,1039,1042,0.2991,0.01,0.2891,96.66,Loss,OK
+Dhaka,Kishoreganj,Katiadi,BD304845,974,994,0.2978,0.0099,0.2879,96.68,Loss,OK
+Dhaka,Tangail,Gopalpur,BD309338,841,849,0.2973,0.01,0.2873,96.64,Loss,OK
+Khulna,Jessore,Kotwali,BD404147,1874,1927,0.2972,0.0099,0.2873,96.67,Loss,OK
+Chittagong,Brahamanbaria,Sarail,BD201294,590,980,0.2959,0.0086,0.2873,97.09,Loss,OK
+Rajshahi,Bogra,Adamdighi,BD501006,731,765,0.2967,0.0098,0.2869,96.7,Loss,OK
+Mymensingh,Mymensingh,Nandail,BD456172,1467,1471,0.2967,0.01,0.2867,96.63,Loss,OK
+Mymensingh,Mymensingh,Muktagachha,BD456165,1426,1432,0.2966,0.01,0.2866,96.63,Loss,OK
+Rangpur,Dinajpur,Chirirbandar,BD552730,1421,1426,0.2962,0.01,0.2862,96.62,Loss,OK
+Khulna,Jhenaidah,Kaliganj,BD404433,1371,1387,0.2959,0.0099,0.286,96.65,Loss,OK
+Rajshahi,Sirajganj,Royganj,BD508861,1189,1189,0.2959,0.01,0.2859,96.62,Loss,OK
+Mymensingh,Mymensingh,Fulbaria,BD456120,1772,1777,0.2959,0.01,0.2859,96.62,Loss,OK
+Khulna,Jhenaidah,Harinakunda,BD404414,1018,1024,0.2957,0.01,0.2857,96.62,Loss,OK
+Mymensingh,Netrakona,Kendua,BD457247,1363,1363,0.2957,0.01,0.2857,96.62,Loss,OK
+Mymensingh,Jamalpur,Bakshiganj,BD453907,936,936,0.2955,0.01,0.2855,96.62,Loss,OK
+Khulna,Jessore,Jhikargachha,BD404123,1372,1374,0.2954,0.01,0.2854,96.61,Loss,OK
+Chittagong,Brahamanbaria,Akhaura,BD201202,398,407,0.2953,0.0099,0.2854,96.65,Loss,OK
+Sylhet,Sunamganj,Bishwambarpur,BD609018,690,849,0.2943,0.0091,0.2852,96.91,Loss,OK
+Chittagong,Chandpur,Shahrasti,BD201395,700,700,0.2951,0.01,0.2851,96.61,Loss,OK
+Rangpur,Dinajpur,Birampur,BD552710,955,972,0.2949,0.0099,0.285,96.64,Loss,OK
+Barisal,Barisal,Agailjhara,BD100602,672,689,0.2941,0.0099,0.2842,96.63,Loss,OK
+Rangpur,Kurigram,Bhurungamari,BD554906,1039,1077,0.2939,0.0098,0.2841,96.67,Loss,OK
+Khulna,Jessore,Bagher Para,BD404109,1209,1211,0.294,0.01,0.284,96.6,Loss,OK
+Dhaka,Madaripur,Kalkini,BD305440,1199,1256,0.2937,0.0098,0.2839,96.66,Loss,OK
+Rangpur,Panchagarh,Atwari,BD557704,946,946,0.2938,0.01,0.2838,96.6,Loss,OK
+Khulna,Jhenaidah,Maheshpur,BD404471,1764,1799,0.2937,0.0099,0.2838,96.63,Loss,OK
+Dhaka,Narsingdi,Palash,BD306863,422,439,0.2933,0.0098,0.2835,96.66,Loss,OK
+Rangpur,Gaibandha,Gobindaganj,BD553230,2090,2104,0.2935,0.01,0.2835,96.59,Loss,OK
+Chittagong,Brahamanbaria,Brahmanbaria Sadar,BD201213,899,985,0.2924,0.0096,0.2828,96.72,Loss,OK
+Khulna,Kushtia,Bheramara,BD405015,567,691,0.2919,0.0092,0.2827,96.85,Loss,OK
+Dhaka,Kishoreganj,Hossainpur,BD304827,533,533,0.2923,0.01,0.2823,96.58,Loss,OK
+Mymensingh,Mymensingh,Gaffargaon,BD456122,1726,1787,0.2914,0.0098,0.2816,96.64,Loss,OK
+Mymensingh,Netrakona,Purbadhala,BD457283,1418,1424,0.2912,0.01,0.2812,96.57,Loss,OK
+Mymensingh,Mymensingh,Bhaluka,BD456113,1991,2000,0.2911,0.01,0.2811,96.56,Loss,OK
+Mymensingh,Mymensingh,Dhobaura,BD456116,1126,1133,0.2911,0.01,0.2811,96.56,Loss,OK
+Khulna,Magura,Sreepur,BD405595,803,814,0.2909,0.0099,0.281,96.6,Loss,OK
+Mymensingh,Netrakona,Netrokona Sadar,BD457274,1491,1504,0.2908,0.01,0.2808,96.56,Loss,OK
+Rangpur,Panchagarh,Panchagarh Sadar,BD557773,1581,1584,0.2907,0.01,0.2807,96.56,Loss,OK
+Khulna,Jhenaidah,Kotchandpur,BD404442,727,767,0.2901,0.0097,0.2804,96.66,Loss,OK
+Rajshahi,Bogra,Kahaloo,BD501054,1054,1083,0.2903,0.0099,0.2804,96.59,Loss,OK
+Mymensingh,Netrakona,Durgapur,BD457218,1243,1266,0.2902,0.0099,0.2803,96.59,Loss,OK
+Khulna,Jessore,Sharsha,BD404190,1460,1497,0.2902,0.0099,0.2803,96.59,Loss,OK
+Chittagong,Chandpur,Matlab Dakshin,BD201376,537,557,0.29,0.0098,0.2802,96.62,Loss,OK
+Chittagong,Brahamanbaria,Nasirnagar,BD201290,945,1409,0.289,0.0089,0.2801,96.92,Loss,OK
+Chittagong,Chandpur,Hajiganj,BD201349,833,853,0.29,0.0099,0.2801,96.59,Loss,OK
+Rangpur,Rangpur,Pirgachha,BD558573,1180,1185,0.2896,0.01,0.2796,96.55,Loss,OK
+Rangpur,Dinajpur,Parbatipur,BD552777,1759,1775,0.2895,0.01,0.2795,96.55,Loss,OK
+Dhaka,Shariatpur,Gosairhat,BD308636,613,683,0.2884,0.0095,0.2789,96.71,Loss,OK
+Mymensingh,Sherpur,Nakla,BD458967,776,782,0.2889,0.01,0.2789,96.54,Loss,OK
+Khulna,Jhenaidah,Jhenaidah Sadar,BD404419,2011,2039,0.2886,0.0099,0.2787,96.57,Loss,OK
+Khulna,Chuadanga,Jiban Nagar,BD401855,893,900,0.2884,0.01,0.2784,96.53,Loss,OK
+Khulna,Bagerhat,Kachua,BD400138,550,564,0.2881,0.0099,0.2782,96.56,Loss,OK
+Rangpur,Rangpur,Mitha Pukur,BD558558,2339,2340,0.2881,0.01,0.2781,96.53,Loss,OK
+Rangpur,Panchagarh,Boda,BD557725,1394,1394,0.288,0.01,0.278,96.53,Loss,OK
+Rangpur,Rangpur,Taraganj,BD558592,593,593,0.2879,0.01,0.2779,96.53,Loss,OK
+Rangpur,Kurigram,Rajarhat,BD554977,725,742,0.2878,0.0099,0.2779,96.56,Loss,OK
+Rajshahi,Bogra,Dhupchanchia,BD501033,724,744,0.2875,0.0099,0.2776,96.56,Loss,OK
+Khulna,Kushtia,Kushtia Sadar,BD405079,1244,1361,0.2872,0.0096,0.2776,96.66,Loss,OK
+Rajshahi,Natore,Lalpur,BD506944,1340,1462,0.2867,0.0097,0.277,96.62,Loss,OK
+Mymensingh,Jamalpur,Islampur,BD453929,1048,1500,0.2853,0.0086,0.2767,96.99,Loss,OK
+Khulna,Meherpur,Gangni,BD405747,1522,1535,0.2867,0.01,0.2767,96.51,Loss,OK
+Rajshahi,Nawabganj,Bholahat,BD507018,556,562,0.2865,0.0099,0.2766,96.54,Loss,OK
+Dhaka,Kishoreganj,Bhairab,BD304811,338,549,0.2845,0.0081,0.2764,97.15,Loss,OK
+Rajshahi,Bogra,Dhunat,BD501027,1060,1115,0.2857,0.0098,0.2759,96.57,Loss,OK
+Mymensingh,Mymensingh,Mymensingh Sadar,BD456152,1610,1691,0.2856,0.0098,0.2758,96.57,Loss,OK
+Dhaka,Gopalganj,Muksudpur,BD303558,1360,1369,0.2856,0.01,0.2756,96.5,Loss,OK
+Dhaka,Rajbari,Rajbari Sadar,BD308276,1263,1454,0.2848,0.0094,0.2754,96.7,Loss,OK
+Rangpur,Gaibandha,Sundarganj,BD553291,1568,1879,0.2842,0.0092,0.275,96.76,Loss,OK
+Dhaka,Faridpur,Madhukhali,BD302956,962,988,0.2848,0.0099,0.2749,96.52,Loss,OK
+Barisal,Barisal,Wazirpur,BD100694,1030,1111,0.2842,0.0096,0.2746,96.62,Loss,OK
+Rangpur,Dinajpur,Ghoraghat,BD552743,672,674,0.2844,0.01,0.2744,96.48,Loss,OK
+Khulna,Bagerhat,Fakirhat,BD400134,652,712,0.2837,0.0096,0.2741,96.62,Loss,OK
+Rangpur,Kurigram,Phulbari,BD554918,726,750,0.2839,0.0098,0.2741,96.55,Loss,OK
+Khulna,Kushtia,Daulatpur,BD405039,1868,2064,0.2836,0.0096,0.274,96.61,Loss,OK
+Chittagong,Chandpur,Haim Char,BD201347,248,374,0.2832,0.0093,0.2739,96.72,Loss,OK
+Sylhet,Sunamganj,Dowarabazar,BD609033,1245,1322,0.2834,0.0097,0.2737,96.58,Loss,OK
+Rajshahi,Pabna,Pabna Sadar,BD507655,1692,1909,0.283,0.0094,0.2736,96.68,Loss,OK
+Chittagong,Brahamanbaria,Nabinagar,BD201285,1452,1620,0.283,0.0095,0.2735,96.64,Loss,OK
+Rajshahi,Bogra,Sonatola,BD501095,669,702,0.2825,0.0098,0.2727,96.53,Loss,OK
+Khulna,Magura,Mohammadpur,BD405566,975,1016,0.2825,0.0098,0.2727,96.53,Loss,OK
+Khulna,Kushtia,Khoksa,BD405063,460,471,0.2825,0.0099,0.2726,96.5,Loss,OK
+Dhaka,Faridpur,Boalmari,BD302918,1207,1213,0.2825,0.01,0.2725,96.46,Loss,OK
+Rajshahi,Joypurhat,Akkelpur,BD503813,630,635,0.2825,0.01,0.2725,96.46,Loss,OK
+Dhaka,Gopalganj,Kashiani,BD303543,1242,1281,0.2822,0.0098,0.2724,96.53,Loss,OK
+Rajshahi,Naogaon,Niamatpur,BD506469,1993,2002,0.2824,0.01,0.2724,96.46,Loss,OK
+Rangpur,Kurigram,Kurigram Sadar,BD554952,874,1219,0.2808,0.0086,0.2722,96.94,Loss,OK
+Sylhet,Sylhet,Balaganj,BD609108,1479,1737,0.2814,0.0093,0.2721,96.7,Loss,OK
+Khulna,Jessore,Manirampur,BD404161,1832,1966,0.2817,0.0097,0.272,96.56,Loss,OK
+Rangpur,Kurigram,Nageshwari,BD554961,1651,1906,0.2812,0.0093,0.2719,96.69,Loss,OK
+Rajshahi,Bogra,Shajahanpur,BD501085,1000,1006,0.2818,0.01,0.2718,96.45,Loss,OK
+Dhaka,Manikganj,Saturia,BD305670,630,630,0.2817,0.01,0.2717,96.45,Loss,OK
+Khulna,Satkhira,Kaliganj,BD408747,800,1439,0.2792,0.0078,0.2714,97.21,Loss,OK
+Sylhet,Sylhet,Gowainghat,BD609141,2076,2151,0.281,0.0098,0.2712,96.51,Loss,OK
+Rajshahi,Joypurhat,Panchbibi,BD503874,1298,1302,0.2811,0.01,0.2711,96.44,Loss,OK
+Rangpur,Rangpur,Badarganj,BD558503,1300,1313,0.2807,0.01,0.2707,96.44,Loss,OK
+Dhaka,Shariatpur,Damudya,BD308625,423,423,0.2807,0.01,0.2707,96.44,Loss,OK
+Rajshahi,Bogra,Bogra Sadar,BD501020,719,789,0.2799,0.0096,0.2703,96.57,Loss,OK
+Sylhet,Habiganj,Nabiganj,BD603677,1891,1943,0.28,0.0099,0.2701,96.46,Loss,OK
+Dhaka,Gazipur,Kaliganj,BD303334,951,1003,0.2792,0.0097,0.2695,96.53,Loss,OK
+Rangpur,Dinajpur,Hakimpur,BD552747,446,449,0.2794,0.01,0.2694,96.42,Loss,OK
+Rangpur,Nilphamari,Kishoreganj,BD557345,931,931,0.2794,0.01,0.2694,96.42,Loss,OK
+Rangpur,Thakurgaon,Baliadangi,BD559408,1277,1277,0.2793,0.01,0.2693,96.42,Loss,OK
+Chittagong,Comilla,Muradnagar,BD201981,1514,1523,0.2793,0.01,0.2693,96.42,Loss,OK
+Rajshahi,Bogra,Shibganj,BD501094,1374,1403,0.2791,0.0099,0.2692,96.45,Loss,OK
+Rangpur,Kurigram,Raumari,BD554979,865,909,0.2791,0.0099,0.2692,96.45,Loss,OK
+Mymensingh,Jamalpur,Dewanganj,BD453915,992,1148,0.2783,0.0094,0.2689,96.62,Loss,OK
+Rangpur,Nilphamari,Saidpur,BD557385,489,537,0.2784,0.0096,0.2688,96.55,Loss,OK
+Rajshahi,Nawabganj,Shibganj,BD507088,2117,2339,0.2781,0.0097,0.2684,96.51,Loss,OK
+Khulna,Kushtia,Kumarkhali,BD405071,1095,1207,0.2779,0.0095,0.2684,96.58,Loss,OK
+Rangpur,Panchagarh,Tentulia,BD557790,858,858,0.2783,0.01,0.2683,96.41,Loss,OK
+Khulna,Meherpur,Mujib Nagar,BD405760,503,506,0.2777,0.01,0.2677,96.4,Loss,OK
+Rajshahi,Bogra,Sherpur,BD501088,1299,1325,0.2776,0.0099,0.2677,96.43,Loss,OK
+Rajshahi,Sirajganj,Ullah Para,BD508894,1855,1855,0.2773,0.01,0.2673,96.39,Loss,OK
+Khulna,Satkhira,Kalaroa,BD408743,1026,1029,0.2771,0.01,0.2671,96.39,Loss,OK
+Khulna,Meherpur,Meherpur Sadar,BD405787,1158,1176,0.2765,0.0099,0.2666,96.42,Loss,OK
+Dhaka,Shariatpur,Shariatpur Sadar,BD308669,781,782,0.2765,0.01,0.2665,96.38,Loss,OK
+Khulna,Magura,Magura Sadar,BD405557,1788,1799,0.2764,0.01,0.2664,96.38,Loss,OK
+Chittagong,Brahamanbaria,Banchharampur,BD201204,822,913,0.2754,0.0095,0.2659,96.55,Loss,OK
+Rangpur,Dinajpur,Kaharole,BD552756,923,928,0.2758,0.01,0.2658,96.37,Loss,OK
+Sylhet,Sunamganj,Tahirpur,BD609092,540,1429,0.2722,0.007,0.2652,97.43,Loss,OK
+Dhaka,Kishoreganj,Karimganj,BD304842,795,908,0.2745,0.0094,0.2651,96.58,Loss,OK
+Rajshahi,Rajshahi,Puthia,BD508182,870,876,0.2745,0.01,0.2645,96.36,Loss,OK
+Rangpur,Thakurgaon,Thakurgaon Sadar,BD559494,3082,3137,0.2742,0.0099,0.2643,96.39,Loss,OK
+Khulna,Chuadanga,Chuadanga Sadar,BD401823,1275,1285,0.2742,0.01,0.2642,96.35,Loss,OK
+Sylhet,Sunamganj,Chhatak,BD609023,1820,1939,0.2738,0.0097,0.2641,96.46,Loss,OK
+Khulna,Chuadanga,Damurhuda,BD401831,1333,1359,0.274,0.0099,0.2641,96.39,Loss,OK
+Khulna,Chuadanga,Alamdanga,BD401807,1617,1623,0.2741,0.01,0.2641,96.35,Loss,OK
+Khulna,Narail,Lohagara,BD406552,1233,1330,0.2736,0.0097,0.2639,96.45,Loss,OK
+Rajshahi,Natore,Singra,BD506991,2377,2407,0.273,0.0099,0.2631,96.37,Loss,OK
+Rangpur,Gaibandha,Saghatta,BD553288,832,1016,0.2721,0.0091,0.263,96.66,Loss,OK
+Rajshahi,Joypurhat,Joypurhat Sadar,BD503847,997,1014,0.2726,0.0099,0.2627,96.37,Loss,OK
+Rajshahi,Naogaon,Naogaon Sadar,BD506460,932,1215,0.2711,0.0088,0.2623,96.75,Loss,OK
+Rajshahi,Naogaon,Porsha,BD506479,1183,1200,0.2721,0.0099,0.2622,96.36,Loss,OK
+Rajshahi,Rajshahi,Bagha,BD508110,740,888,0.2717,0.0095,0.2622,96.5,Loss,OK
+Rajshahi,Pabna,Chatmohar,BD507622,1349,1366,0.2721,0.0099,0.2622,96.36,Loss,OK
+Dhaka,Tangail,Kalihati,BD309347,1213,1317,0.2715,0.0097,0.2618,96.43,Loss,OK
+Chittagong,Chittagong,Pahartali,BD201555,6,42,0.2675,0.0057,0.2618,97.87,Loss,OK
+Dhaka,Tangail,Mirzapur,BD309366,1615,1618,0.2716,0.01,0.2616,96.32,Loss,OK
+Rangpur,Panchagarh,Debiganj,BD557734,1404,1408,0.2715,0.01,0.2615,96.32,Loss,OK
+Sylhet,Sylhet,Companiganj,BD609127,1087,1168,0.2712,0.0097,0.2615,96.42,Loss,OK
+Dhaka,Tangail,Nagarpur,BD309376,1090,1108,0.2712,0.01,0.2612,96.31,Loss,OK
+Rangpur,Nilphamari,Domar,BD557315,1130,1132,0.2709,0.01,0.2609,96.31,Loss,OK
+Dhaka,Madaripur,Rajoir,BD305480,1005,1012,0.2706,0.01,0.2606,96.3,Loss,OK
+Rangpur,Kurigram,Ulipur,BD554994,1426,2075,0.2689,0.0085,0.2604,96.84,Loss,OK
+Rangpur,Dinajpur,Bochaganj,BD552721,995,1006,0.2701,0.0099,0.2602,96.33,Loss,OK
+Rajshahi,Natore,Gurudaspur,BD506941,872,879,0.27,0.01,0.26,96.3,Loss,OK
+Chittagong,Brahamanbaria,Bijoynagar,BD201207,933,974,0.2698,0.01,0.2598,96.29,Loss,OK
+Dhaka,Kishoreganj,Kishoreganj Sadar,BD304849,824,840,0.2693,0.0099,0.2594,96.32,Loss,OK
+Rangpur,Nilphamari,Nilphamari Sadar,BD557364,1630,1702,0.2688,0.0098,0.259,96.35,Loss,OK
+Rangpur,Dinajpur,Khansama,BD552760,818,818,0.269,0.01,0.259,96.28,Loss,OK
+Dhaka,Tangail,Delduar,BD309323,749,749,0.2688,0.01,0.2588,96.28,Loss,OK
+Dhaka,Dhaka,Dhamrai,BD302614,1346,1350,0.2688,0.01,0.2588,96.28,Loss,OK
+Rajshahi,Sirajganj,Sirajganj Sadar,BD508878,1020,1416,0.2673,0.0087,0.2586,96.75,Loss,OK
+Rangpur,Rangpur,Rangpur Sadar,BD558549,1378,1449,0.2684,0.0098,0.2586,96.35,Loss,OK
+Rangpur,Rangpur,Kaunia,BD558542,607,640,0.2681,0.0097,0.2584,96.38,Loss,OK
+Dhaka,Dhaka,Dohar,BD302618,398,647,0.2658,0.0082,0.2576,96.91,Loss,OK
+Sylhet,Habiganj,Ajmiriganj,BD603602,626,829,0.2663,0.0088,0.2575,96.7,Loss,OK
+Dhaka,Faridpur,Faridpur Sadar,BD302947,1423,1684,0.2667,0.0092,0.2575,96.55,Loss,OK
+Rajshahi,Sirajganj,Belkuchi,BD508811,611,734,0.2665,0.0095,0.257,96.44,Loss,OK
+Rajshahi,Rajshahi,Tanore,BD508194,1269,1329,0.2668,0.0098,0.257,96.33,Loss,OK
+Rangpur,Kurigram,Chilmari,BD554909,412,1048,0.2638,0.0071,0.2567,97.31,Loss,OK
+Rangpur,Thakurgaon,Pirganj,BD559482,1571,1581,0.2667,0.01,0.2567,96.25,Loss,OK
+Rajshahi,Sirajganj,Tarash,BD508889,1337,1347,0.2666,0.01,0.2566,96.25,Loss,OK
+Mymensingh,Mymensingh,Trishal,BD456194,1499,1510,0.2663,0.01,0.2563,96.24,Loss,OK
+Dhaka,Tangail,Tangail Sadar,BD309395,1280,1427,0.2657,0.0096,0.2561,96.39,Loss,OK
+Chittagong,Comilla,Manoharganj,BD201974,711,712,0.266,0.01,0.256,96.24,Loss,OK
+Sylhet,Habiganj,Lakhai,BD603668,576,845,0.2637,0.0085,0.2552,96.78,Loss,OK
+Dhaka,Gazipur,Kaliakair,BD303332,1367,1395,0.2649,0.0099,0.255,96.26,Loss,OK
+Dhaka,Faridpur,Bhanga,BD302910,936,945,0.2647,0.01,0.2547,96.22,Loss,OK
+Rangpur,Dinajpur,Birganj,BD552712,1864,1876,0.2646,0.01,0.2546,96.22,Loss,OK
+Rangpur,Lalmonirhat,Lalmonirhat Sadar,BD555255,1139,1214,0.2642,0.0097,0.2545,96.33,Loss,OK
+Rajshahi,Pabna,Santhia,BD507672,1473,1505,0.2641,0.0099,0.2542,96.25,Loss,OK
+Rajshahi,Rajshahi,Godagari,BD508134,2067,2197,0.2638,0.0097,0.2541,96.32,Loss,OK
+Rangpur,Thakurgaon,Ranisankail,BD559486,1309,1311,0.264,0.01,0.254,96.21,Loss,OK
+Dhaka,Rajbari,Pangsha,BD308273,1021,1132,0.2635,0.0095,0.254,96.39,Loss,OK
+Rangpur,Kurigram,Char Rajibpur,BD554908,302,538,0.2619,0.0079,0.254,96.98,Loss,OK
+Dhaka,Narayanganj,Araihazar,BD306702,689,808,0.2626,0.0094,0.2532,96.42,Loss,OK
+Rajshahi,Rajshahi,Paba,BD508172,1089,1355,0.2622,0.0091,0.2531,96.53,Loss,OK
+Rangpur,Lalmonirhat,Kaliganj,BD555239,1109,1112,0.263,0.01,0.253,96.2,Loss,OK
+Rangpur,Lalmonirhat,Aditmari,BD555202,870,895,0.2627,0.0099,0.2528,96.23,Loss,OK
+Rajshahi,Rajshahi,Shah Makhdum,BD508190,25,33,0.2614,0.0088,0.2526,96.63,Loss,OK
+Dhaka,Gazipur,Gazipur Sadar,BD303330,1927,2034,0.2616,0.0097,0.2519,96.29,Loss,OK
+Rajshahi,Nawabganj,Nawabganj Sadar,BD507066,1610,1938,0.2608,0.0093,0.2515,96.43,Loss,OK
+Khulna,Jessore,Keshabpur,BD404138,1051,1131,0.2607,0.0097,0.251,96.28,Loss,OK
+Mymensingh,Netrakona,Atpara,BD457204,837,845,0.2609,0.01,0.2509,96.17,Loss,OK
+Dhaka,Dhaka,Nawabganj,BD302662,1085,1109,0.2606,0.0099,0.2507,96.2,Loss,OK
+Rajshahi,Naogaon,Manda,BD506447,1692,1864,0.2601,0.0095,0.2506,96.35,Loss,OK
+Dhaka,Rajbari,Balia Kandi,BD308207,1055,1066,0.2605,0.0099,0.2506,96.2,Loss,OK
+Chittagong,Comilla,Titas,BD201994,477,481,0.2597,0.01,0.2497,96.15,Loss,OK
+Chittagong,Comilla,Homna,BD201954,559,577,0.2595,0.0098,0.2497,96.22,Loss,OK
+Mymensingh,Netrakona,Kalmakanda,BD457240,1558,1721,0.258,0.0095,0.2485,96.32,Loss,OK
+Dhaka,Shariatpur,Naria,BD308665,751,1071,0.2571,0.0086,0.2485,96.65,Loss,OK
+Dhaka,Narsingdi,Narsingdi Sadar,BD306860,774,970,0.2575,0.009,0.2485,96.5,Loss,OK
+Rangpur,Nilphamari,Jaldhaka,BD557336,1368,1380,0.2578,0.01,0.2478,96.12,Loss,OK
+Rajshahi,Sirajganj,Kazipur,BD508850,1033,1667,0.2559,0.0082,0.2477,96.8,Loss,OK
+Dhaka,Madaripur,Madaripur Sadar,BD305454,1228,1278,0.2574,0.0098,0.2476,96.19,Loss,OK
+Khulna,Magura,Shalikha,BD405585,1015,1015,0.2571,0.01,0.2471,96.11,Loss,OK
+Rangpur,Thakurgaon,Haripur,BD559451,901,901,0.257,0.01,0.247,96.11,Loss,OK
+Dhaka,Faridpur,Alfadanga,BD302903,544,589,0.2562,0.0096,0.2466,96.25,Loss,OK
+Rajshahi,Natore,Natore Sadar,BD506963,1658,1802,0.256,0.0096,0.2464,96.25,Loss,OK
+Rajshahi,Joypurhat,Khetlal,BD503861,618,621,0.2562,0.01,0.2462,96.1,Loss,OK
+Rajshahi,Joypurhat,Kalai,BD503858,712,740,0.2558,0.0098,0.246,96.17,Loss,OK
+Dhaka,Gopalganj,Gopalganj Sadar,BD303532,1676,1708,0.2558,0.0099,0.2459,96.13,Loss,OK
+Dhaka,Shariatpur,Bhedarganj,BD308614,1036,1159,0.255,0.0096,0.2454,96.24,Loss,OK
+Rajshahi,Sirajganj,Shahjadpur,BD508867,1139,1448,0.2532,0.009,0.2442,96.45,Loss,OK
+Khulna,Narail,Narail Sadar,BD406576,1700,1700,0.254,0.01,0.244,96.06,Loss,OK
+Rajshahi,Bogra,Sariakandi,BD501081,889,1824,0.2511,0.0076,0.2435,96.97,Loss,OK
+Rajshahi,Nawabganj,Gomastapur,BD507037,1334,1441,0.2531,0.0096,0.2435,96.21,Loss,OK
+Dhaka,Manikganj,Singair,BD305682,922,945,0.2522,0.0099,0.2423,96.07,Loss,OK
+Dhaka,Faridpur,Sadarpur,BD302984,729,1229,0.2503,0.008,0.2423,96.8,Loss,OK
+Dhaka,Munshiganj,Sreenagar,BD305984,788,883,0.251,0.0095,0.2415,96.22,Loss,OK
+Dhaka,Manikganj,Ghior,BD305622,641,641,0.2509,0.01,0.2409,96.01,Loss,OK
+Dhaka,Rajbari,Kalukhali,BD308247,704,728,0.2505,0.0098,0.2407,96.09,Loss,OK
+Dhaka,Narayanganj,Sonargaon,BD306704,705,802,0.2501,0.0094,0.2407,96.24,Loss,OK
+Dhaka,Manikganj,Manikganj Sadar,BD305646,930,950,0.2501,0.0099,0.2402,96.04,Loss,OK
+Rangpur,Rangpur,Gangachara,BD558527,1126,1200,0.2498,0.0097,0.2401,96.12,Loss,OK
+Rajshahi,Pabna,Faridpur,BD507633,652,652,0.2495,0.01,0.2395,95.99,Loss,OK
+Dhaka,Gopalganj,Kotali Para,BD303551,1564,1613,0.248,0.0098,0.2382,96.05,Loss,OK
+Dhaka,Faridpur,Saltha,BD302990,850,854,0.2477,0.01,0.2377,95.96,Loss,OK
+Khulna,Khulna,Phultala,BD404769,220,252,0.2471,0.0094,0.2377,96.2,Loss,OK
+Chittagong,Chittagong,Chandgaon,BD201519,33,88,0.2442,0.0069,0.2373,97.17,Loss,OK
+Rajshahi,Rajshahi,Durgapur,BD508131,815,861,0.2468,0.0097,0.2371,96.07,Loss,OK
+Dhaka,Faridpur,Nagarkanda,BD302962,887,887,0.2469,0.01,0.2369,95.95,Loss,OK
+Mymensingh,Netrakona,Mohanganj,BD457263,806,1076,0.2456,0.0087,0.2369,96.46,Loss,OK
+Dhaka,Dhaka,Uttar Khan,BD302696,78,91,0.2456,0.0093,0.2363,96.21,Loss,OK
+Sylhet,Sunamganj,Sunamganj Sadar,BD609089,963,1252,0.245,0.0089,0.2361,96.37,Loss,OK
+Chittagong,Comilla,Daudkandi,BD201936,914,954,0.2457,0.0098,0.2359,96.01,Loss,OK
+Dhaka,Madaripur,Shib Char,BD305487,1035,1474,0.2444,0.0085,0.2359,96.52,Loss,OK
+Dhaka,Gopalganj,Tungi Para,BD303591,543,563,0.2454,0.0098,0.2356,96.01,Loss,OK
+Sylhet,Habiganj,Baniachong,BD603611,1532,2218,0.2435,0.0085,0.235,96.51,Loss,OK
+Rajshahi,Rajshahi,Matihar,BD508140,38,39,0.2442,0.0099,0.2343,95.95,Loss,OK
+Dhaka,Munshiganj,Lohajang,BD305944,373,619,0.2421,0.0081,0.234,96.65,Loss,OK
+Sylhet,Sunamganj,Jagannathpur,BD609047,1403,1663,0.2427,0.0092,0.2335,96.21,Loss,OK
+Rajshahi,Pabna,Bera,BD507616,807,1150,0.2413,0.0086,0.2327,96.44,Loss,OK
+Chittagong,Comilla,Meghna,BD201975,366,466,0.2413,0.0089,0.2324,96.31,Loss,OK
+Dhaka,Munshiganj,Gazaria,BD305924,447,639,0.2409,0.0085,0.2324,96.47,Loss,OK
+Dhaka,Manikganj,Harirampur,BD305628,499,1079,0.2395,0.0073,0.2322,96.95,Loss,OK
+Khulna,Khulna,Daulatpur,BD404721,37,64,0.2401,0.0079,0.2322,96.71,Loss,OK
+Khulna,Narail,Kalia,BD406528,1309,1379,0.242,0.0098,0.2322,95.95,Loss,OK
+Dhaka,Munshiganj,Tongibari,BD305994,462,537,0.2412,0.0093,0.2319,96.14,Loss,OK
+Rajshahi,Pabna,Sujanagar,BD507683,1306,1464,0.2413,0.0096,0.2317,96.02,Loss,OK
+Dhaka,Manikganj,Daulatpur,BD305610,744,964,0.24,0.0092,0.2308,96.17,Loss,OK
+Dhaka,Kishoreganj,Tarail,BD304892,631,638,0.2404,0.0099,0.2305,95.88,Loss,OK
+Dhaka,Tangail,Basail,BD309309,739,739,0.2402,0.01,0.2302,95.84,Loss,OK
+Khulna,Jessore,Abhaynagar,BD404104,1017,1091,0.2397,0.0097,0.23,95.95,Loss,OK
+Khulna,Satkhira,Tala,BD408790,1295,1475,0.2392,0.0094,0.2298,96.07,Loss,OK
+Rangpur,Nilphamari,Dimla,BD557312,1433,1501,0.2378,0.0098,0.228,95.88,Loss,OK
+Dhaka,Munshiganj,Serajdikhan,BD305974,764,770,0.2373,0.01,0.2273,95.79,Loss,OK
+Khulna,Khulna,Rupsa,BD404775,402,523,0.2348,0.0088,0.226,96.25,Loss,OK
+Khulna,Khulna,Khan Jahan Ali,BD404748,105,112,0.2355,0.0097,0.2258,95.88,Loss,OK
+Rajshahi,Rajshahi,Rajpara,BD508185,14,53,0.2318,0.0063,0.2255,97.28,Loss,OK
+Dhaka,Tangail,Bhuapur,BD309319,682,1036,0.2331,0.0083,0.2248,96.44,Loss,OK
+Rajshahi,Rajshahi,Mohanpur,BD508153,675,710,0.2344,0.0098,0.2246,95.82,Loss,OK
+Dhaka,Narayanganj,Rupganj,BD306768,751,808,0.2339,0.0096,0.2243,95.9,Loss,OK
+Rajshahi,Pabna,Bhangura,BD507619,567,567,0.2342,0.01,0.2242,95.73,Loss,OK
+Rangpur,Lalmonirhat,Patgram,BD555270,1221,1236,0.2317,0.0099,0.2218,95.73,Loss,OK
+Mymensingh,Netrakona,Madan,BD457256,757,1028,0.2302,0.0087,0.2215,96.22,Loss,OK
+Rangpur,Gaibandha,Fulchhari,BD553221,746,1412,0.2295,0.0081,0.2214,96.47,Loss,OK
+Chittagong,Cox's Bazar,Kutubdia,BD202245,164,314,0.2279,0.0076,0.2203,96.67,Loss,OK
+Dhaka,Munshiganj,Munshiganj Sadar,BD305956,551,683,0.2282,0.0091,0.2191,96.01,Loss,OK
+Rangpur,Lalmonirhat,Hatibandha,BD555233,1228,1319,0.2283,0.0097,0.2186,95.75,Loss,OK
+Dhaka,Faridpur,Char Bhadrasan,BD302921,271,677,0.225,0.007,0.218,96.89,Loss,OK
+Khulna,Satkhira,Assasuni,BD408704,613,1668,0.2242,0.0069,0.2173,96.92,Loss,OK
+Dhaka,Rajbari,Goalandaghat,BD308229,393,684,0.225,0.0081,0.2169,96.4,Loss,OK
+Rajshahi,Naogaon,Atrai,BD506403,1149,1176,0.225,0.0099,0.2151,95.6,Loss,OK
+Khulna,Khulna,Sonadanga,BD404785,9,40,0.2189,0.0061,0.2128,97.21,Loss,OK
+Dhaka,Narayanganj,Bandar,BD306706,245,268,0.2222,0.0096,0.2126,95.68,Loss,OK
+Dhaka,Dhaka,Keraniganj,BD302638,791,849,0.2223,0.0097,0.2126,95.64,Loss,OK
+Dhaka,Manikganj,Shibalaya,BD305678,689,894,0.2209,0.0095,0.2114,95.7,Loss,OK
+Khulna,Bagerhat,Bagerhat Sadar,BD400108,1222,1371,0.2209,0.0096,0.2113,95.65,Loss,OK
+Dhaka,Dhaka,Shah Ali,BD302674,5,15,0.217,0.0067,0.2103,96.91,Loss,OK
+Khulna,Satkhira,Debhata,BD408725,230,766,0.2167,0.0065,0.2102,97.0,Loss,OK
+Dhaka,Dhaka,Savar,BD302672,1186,1272,0.2196,0.0097,0.2099,95.58,Loss,OK
+Dhaka,Shariatpur,Zanjira,BD308694,718,1148,0.2174,0.0084,0.209,96.14,Loss,OK
+Khulna,Satkhira,Satkhira Sadar,BD408782,1471,1758,0.2154,0.0092,0.2062,95.73,Loss,OK
+Khulna,Bagerhat,Mollahat,BD400156,630,774,0.2143,0.0091,0.2052,95.75,Loss,OK
+Rajshahi,Rajshahi,Boalia,BD508122,29,86,0.211,0.0067,0.2043,96.82,Loss,OK
+Khulna,Khulna,Terokhada,BD404794,808,819,0.2113,0.0099,0.2014,95.31,Loss,OK
+Khulna,Bagerhat,Rampal,BD400173,539,1231,0.2062,0.0072,0.199,96.51,Loss,OK
+Dhaka,Dhaka,Cantonment,BD302608,16,49,0.2053,0.0066,0.1987,96.79,Loss,OK
+Khulna,Khulna,Dumuria,BD404730,1653,2023,0.207,0.0091,0.1979,95.6,Loss,OK
+Khulna,Khulna,Dighalia,BD404740,293,340,0.2071,0.0093,0.1978,95.51,Loss,OK
+Dhaka,Dhaka,Dakshinkhan,BD302610,18,36,0.205,0.0075,0.1975,96.34,Loss,OK
+Rajshahi,Rajshahi,Baghmara,BD508112,1601,1663,0.2044,0.0098,0.1946,95.21,Loss,OK
+Chittagong,Chittagong,Halishahar,BD201535,8,51,0.1956,0.0058,0.1898,97.03,Loss,OK
+Khulna,Bagerhat,Chitalmari,BD400114,764,873,0.197,0.0094,0.1876,95.23,Loss,OK
+Dhaka,Dhaka,Khilkhet,BD302637,58,71,0.1953,0.0091,0.1862,95.34,Loss,OK
+Sylhet,Sunamganj,Dharampasha,BD609032,841,2240,0.1913,0.0069,0.1844,96.39,Loss,OK
+Khulna,Khulna,Khulna Sadar,BD404751,21,53,0.1883,0.007,0.1813,96.28,Loss,OK
+Chittagong,Chittagong,Patenga,BD201565,62,121,0.1889,0.0076,0.1813,95.98,Loss,OK
+Dhaka,Kishoreganj,Nikli,BD304876,324,829,0.1831,0.007,0.1761,96.18,Loss,OK
+Dhaka,Dhaka,Biman Bandar,BD302606,11,36,0.1823,0.0065,0.1758,96.43,Loss,OK
+Sylhet,Sunamganj,Jamalganj,BD609050,451,1492,0.179,0.0065,0.1725,96.37,Loss,OK
+Chittagong,Chittagong,Bakalia,BD201510,21,37,0.18,0.0078,0.1722,95.67,Loss,OK
+Khulna,Khulna,Khalishpur,BD404745,27,57,0.1778,0.0074,0.1704,95.84,Loss,OK
+Rajshahi,Sirajganj,Chauhali,BD508827,441,1073,0.1756,0.0074,0.1682,95.79,Loss,OK
+Dhaka,Dhaka,Sabujbagh,BD302668,23,31,0.1765,0.0087,0.1678,95.07,Loss,OK
+Sylhet,Sunamganj,Dakshin Sunamganj,BD609027,726,1378,0.1728,0.0076,0.1652,95.6,Loss,OK
+Sylhet,Sunamganj,Sulla,BD609086,377,1179,0.1681,0.0066,0.1615,96.07,Loss,OK
+Dhaka,Kishoreganj,Austagram,BD304802,172,1349,0.1673,0.0059,0.1614,96.47,Loss,OK
+Dhaka,Dhaka,Demra,BD302612,83,98,0.168,0.0092,0.1588,94.52,Loss,OK
+Dhaka,Narayanganj,Narayanganj Sadar,BD306758,313,443,0.1654,0.0085,0.1569,94.86,Loss,OK
+Dhaka,Dhaka,Khilgaon,BD302636,43,59,0.1649,0.0086,0.1563,94.78,Loss,OK
+Dhaka,Dhaka,Turag,BD302693,88,111,0.16,0.009,0.151,94.38,Loss,OK
+Dhaka,Kishoreganj,Mithamain,BD304859,198,1007,0.1562,0.0061,0.1501,96.09,Loss,OK
+Dhaka,Dhaka,Badda,BD302604,135,162,0.1572,0.0092,0.148,94.15,Loss,OK
+Dhaka,Dhaka,Jatrabari,BD302629,23,54,0.1537,0.0071,0.1466,95.38,Loss,OK
+Dhaka,Dhaka,Pallabi,BD302664,14,48,0.1514,0.0065,0.1449,95.71,Loss,OK
+Sylhet,Sunamganj,Derai,BD609029,826,1821,0.1512,0.0073,0.1439,95.17,Loss,OK
+Chittagong,Chittagong,Chittagong Port,BD201520,15,52,0.144,0.0064,0.1376,95.56,Loss,OK
+Chittagong,Chittagong,Double Mooring,BD201528,7,37,0.1386,0.0059,0.1327,95.74,Loss,OK
+Dhaka,Kishoreganj,Itna,BD304833,472,1725,0.1261,0.0064,0.1197,94.92,Loss,OK
+Dhaka,Dhaka,Hazaribagh,BD302628,14,24,0.1132,0.0079,0.1053,93.02,Loss,OK
+Dhaka,Dhaka,Kafrul,BD302630,1,42,0.11,0.0051,0.1049,95.36,Loss,OK
+Mymensingh,Netrakona,Khaliajuri,BD457238,258,1308,0.1091,0.006,0.1031,94.5,Loss,OK
+Dhaka,Dhaka,Uttara,BD302695,2,28,0.1075,0.0054,0.1021,94.98,Loss,OK
+Dhaka,Dhaka,Lalbagh,BD302642,2,21,0.1,0.0055,0.0945,94.5,Loss,OK
+Chittagong,Chittagong,Kotwali,BD201541,5,41,0.1,0.0056,0.0944,94.4,Loss,OK
+Dhaka,Dhaka,Mohammadpur,BD302650,15,32,0.101,0.0077,0.0933,92.38,Loss,OK
+Dhaka,Dhaka,Darus Salam,BD302611,3,17,0.0983,0.0059,0.0924,94.0,Loss,OK
+Dhaka,Dhaka,Kadamtali,BD302632,22,41,0.0902,0.0077,0.0825,91.46,Loss,OK
+Dhaka,Dhaka,Kamrangir Char,BD302634,4,7,0.0825,0.0079,0.0746,90.42,Loss,OK
+Dhaka,Dhaka,Rampura,BD302667,3,14,0.0783,0.0068,0.0715,91.32,Loss,OK
+Dhaka,Dhaka,Adabor,BD302602,2,9,0.0575,0.0061,0.0514,89.39,Loss,OK
+Dhaka,Dhaka,Sutrapur,BD302688,1,13,0.04,0.0054,0.0346,86.5,Loss,OK
+Dhaka,Dhaka,Bangshal,BD302605,0,8,,0.005,,,No Data,Check
+Dhaka,Dhaka,Chak Bazar,BD302609,0,5,,0.005,,,No Data,Check
+Dhaka,Dhaka,Dhanmondi,BD302616,0,14,,0.005,,,No Data,Check
+Dhaka,Dhaka,Gendaria,BD302624,0,6,,0.005,,,No Data,Check
+Dhaka,Dhaka,Gulshan,BD302626,0,39,,0.005,,,No Data,Check
+Dhaka,Dhaka,Kalabagan,BD302633,0,6,,0.005,,,No Data,Check
+Dhaka,Dhaka,Kotwali,BD302640,0,2,,0.005,,,No Data,Check
+Dhaka,Dhaka,Mirpur,BD302648,0,32,,0.005,,,No Data,Check
+Dhaka,Dhaka,Motijheel,BD302654,0,17,,0.005,,,No Data,Check
+Dhaka,Dhaka,New Market,BD302663,0,7,,0.005,,,No Data,Check
+Dhaka,Dhaka,Paltan,BD302665,0,5,,0.005,,,No Data,Check
+Chittagong,Chittagong,Panchlaish,BD201557,0,29,,0.005,,,No Data,Check
+Dhaka,Dhaka,Ramna,BD302666,0,15,,0.005,,,No Data,Check
+Dhaka,Dhaka,Shahbagh,BD302675,0,17,,0.005,,,No Data,Check
+Dhaka,Dhaka,Sher-e-bangla Nagar,BD302680,0,18,,0.005,,,No Data,Check
+Dhaka,Dhaka,Shyampur,BD302676,0,10,,0.005,,,No Data,Check
+Dhaka,Dhaka,Tejgaon,BD302690,0,12,,0.005,,,No Data,Check
+Dhaka,Dhaka,Tejgaon Ind. Area,BD302692,0,14,,0.005,,,No Data,Check
