@@ -178,6 +178,82 @@ Forecast and observed categories are matched at ADM3/Upazila level and classifie
 
 Spatial outputs use the Bangladesh ADM3 boundary data included under `data/reference/bangladesh_adm3/`.
 
+
+## Standalone Vulnerability Categorization
+
+For the vulnerability-only ablation, vulnerability is treated as a **static pre-event condition** and is evaluated independently from the operational impact model. Therefore, vulnerability categories are not recalibrated separately for different forecast lead times or cyclone events.
+
+The normalized vulnerability index (`Norm_Vul`) is converted into four ordinal vulnerability categories using fixed percentile-based thresholds derived from the vulnerability distribution.
+
+The workflow is implemented in:
+
+```text
+scripts/vulnerability_categorization.py
+```
+
+The workflow is:
+
+```text
+Norm_Vul values
+        |
+        v
+Calculate fixed percentile thresholds
+        |
+        v
+Generate vulnerability categories
+        |
+        v
+Apply the same categories across all lead times
+        |
+        v
+Standalone vulnerability Kappa evaluation
+```
+
+The generated vulnerability classes represent:
+
+| Vulnerability category | Description |
+|---|---|
+| No Impact proxy | Lowest vulnerability group based on the selected percentile threshold |
+| Low | Lower vulnerability group |
+| Moderate | Intermediate vulnerability group |
+| High | Highest vulnerability group |
+
+The generated outputs are stored under:
+
+```text
+outputs/vulnerability_categories/
+
+├── Remal_Vulnerability_Categories.xlsx
+├── Midhili_Vulnerability_Categories.xlsx
+└── Sitrang_Vulnerability_Categories.xlsx
+```
+
+Each output contains:
+
+```text
+P Code
+ADM3_PCODE
+District
+Upazila
+Norm_Vul
+Vulnerability_Category
+Vulnerability_Class
+```
+
+These vulnerability classes are used in:
+
+```text
+scripts/ablation_kappa_comparison_all_cyclones.py
+```
+
+for standalone comparison against:
+
+- Composite IBF impact forecast
+- Weighted hazard-only predictor
+
+This separation ensures that vulnerability-only performance represents the contribution of baseline susceptibility alone and is not influenced by cyclone-specific hazard calibration or forecast lead time.
+
+
 ## Standalone Predictor Comparison (Ablation)
 
 The repository also includes an ablation workflow to determine whether the full composite impact forecast adds information beyond hazard alone or vulnerability alone.
@@ -250,9 +326,9 @@ Using the current three-cyclone sample outputs:
 
 | Predictor | Overall mean Kappa | Housing mean Kappa | Agriculture mean Kappa |
 |---|---:|---:|---:|
-| Composite | **0.3403** | 0.2816 | **0.3991** |
-| Hazard-only (weighted) | 0.2918 | **0.3245** | 0.2591 |
-| Vulnerability alone | 0.2255 | 0.2349 | 0.2161 |
+| Composite | **0.3411** | 0.2827 | **0.3994** |
+| Hazard-only (weighted) | 0.2912 | **0.3234** | 0.2591 |
+| Vulnerability alone | 0.2926 | 0.2935 | 0.2916 |
 
 The ablation result supports a **sector-specific and event-dependent interpretation**. The Composite has the highest overall mean Kappa and the strongest agricultural performance across the three cyclones, while weighted hazard alone has the highest cross-cyclone housing mean Kappa. Vulnerability alone is generally weaker, although individual event-sector combinations can differ.
 
