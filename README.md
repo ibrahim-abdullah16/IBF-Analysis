@@ -152,7 +152,7 @@ Observed DDM damage is converted into ordered severity classes:
 ```text
 No Impact
 Low
-Medium
+Moderate
 High
 ```
 
@@ -272,9 +272,13 @@ It processes **Remal, Midhili, and Sitrang in one run** and compares three predi
 | Vulnerability alone | `Norm_Vul` |
 | Hazard-only (weighted) | `0.35 × Norm_Wind Gust + 0.35 × Norm_Rainfall + 0.30 × Norm_Storm Surge` |
 
-For a fair comparison, vulnerability-only and hazard-only scores use the **same lead-specific and sector-specific forecast severity boundaries derived from the operational composite forecast**. The forecast-side thresholds are therefore not independently fitted against DDM for the standalone predictors.
+Two separate classifications enter this comparison and they are handled differently.
 
-For each predictor and damage variable, the DDM Low/High cut pair is calibrated using the same three-lead quadratic-weighted Kappa search used in the main severity-calibration workflow.
+**Observation side.** For each predictor and damage variable, the DDM Low/High cut pair is calibrated using the same three-lead quadratic-weighted Kappa search used in the main severity-calibration workflow. The search is run independently for each predictor, so every predictor is scored at the DDM class boundaries that maximize its own agreement rather than at boundaries tuned to the Composite.
+
+**Forecast side.** The Composite retains the optimized Kappa calibration used throughout the main validation workflow. Both reduced predictors are instead classified independently of the operational impact model: because neither carries the exposure term that the operational calibration is built around, lead-time-specific calibration is avoided for both, and each is converted into four ordinal categories using fixed percentile-based thresholds derived from its own score distribution.
+
+Because both the vulnerability index and its thresholds are static, vulnerability-only Kappa is identical at `1dlt`, `2dlt` and `3dlt` for every cyclone and damage variable, and it therefore acts as a lead-time-invariant reference. The hazard-only score varies across lead times because the hazard field itself changes, not because its class boundaries move.
 
 Run:
 
@@ -320,19 +324,60 @@ Adjacent %
 Off-Cat. %
 ```
 
-### Cross-cyclone ablation summary
+### Threshold-independent (AUC) component comparison
+
+The component comparison is run on two metrics, because they measure different things and do not agree. AUC scores the rank ordering of the raw predictor score against the binary damaged/undamaged outcome and is independent of any decision threshold. Quadratic-weighted Kappa scores the four-class assignment after event-specific cut-point calibration. A predictor can rank poorly but bin well, so both are reported.
+
+| Cyclone | Lead | Sector | Composite AUC | Vulnerability alone AUC | Hazard-only AUC | Composite > hazard-only? |
+|---|---|---|---:|---:|---:|---|
+| Remal | 1dlt | Housing | 0.827 | 0.812 | 0.866 | No |
+| Remal | 1dlt | Agriculture | 0.649 | 0.559 | 0.634 | Yes |
+| Remal | 2dlt | Housing | 0.815 | 0.805 | 0.888 | No |
+| Remal | 2dlt | Agriculture | 0.683 | 0.552 | 0.709 | No |
+| Remal | 3dlt | Housing | 0.742 | 0.812 | 0.846 | No |
+| Remal | 3dlt | Agriculture | 0.634 | 0.559 | 0.653 | No |
+| Midhili | 1dlt | Housing | 0.580 | 0.566 | 0.764 | No |
+| Midhili | 1dlt | Agriculture | 0.730 | 0.647 | 0.727 | Yes |
+| Midhili | 2dlt | Housing | 0.582 | 0.566 | 0.752 | No |
+| Midhili | 2dlt | Agriculture | 0.725 | 0.647 | 0.746 | No |
+| Midhili | 3dlt | Housing | 0.531 | 0.566 | 0.652 | No |
+| Midhili | 3dlt | Agriculture | 0.603 | 0.647 | 0.534 | Yes |
+| Sitrang | 1dlt | Housing | 0.492 | 0.600 | 0.663 | No |
+| Sitrang | 1dlt | Agriculture | 0.617 | 0.585 | 0.694 | No |
+| Sitrang | 2dlt | Housing | 0.503 | 0.600 | 0.665 | No |
+| Sitrang | 2dlt | Agriculture | 0.582 | 0.585 | 0.621 | No |
+| Sitrang | 3dlt | Housing | 0.495 | 0.600 | 0.661 | No |
+| Sitrang | 3dlt | Agriculture | 0.519 | 0.585 | 0.516 | Yes |
+
+On AUC the picture is less favourable to the Composite than on Kappa. Weighted hazard alone exceeds the Composite in **all nine** housing combinations. In agriculture the Composite exceeds hazard alone in 4 of 9 combinations and is the highest of the three predictors in 2 of 9.
+
+The two metrics disagree because the Composite's multiplication by vulnerability and exposure compresses the score distribution, which can help four-class assignment after calibration while hurting the raw rank ordering that AUC measures.
+
+### Cross-cyclone Kappa ablation summary
 
 Using the current three-cyclone sample outputs:
 
-| Predictor | Overall mean Kappa | Housing mean Kappa | Agriculture mean Kappa |
-|---|---:|---:|---:|
-| Composite | **0.3411** | 0.2827 | **0.3994** |
-| Hazard-only (weighted) | 0.2912 | **0.3234** | 0.2591 |
-| Vulnerability alone | 0.2926 | 0.2935 | 0.2916 |
+Averaged across all 36 cyclone-sector-lead-variable combinations, and across the 18 housing and 18 agricultural combinations separately:
 
-The ablation result supports a **sector-specific and event-dependent interpretation**. The Composite has the highest overall mean Kappa and the strongest agricultural performance across the three cyclones, while weighted hazard alone has the highest cross-cyclone housing mean Kappa. Vulnerability alone is generally weaker, although individual event-sector combinations can differ.
+| Predictor | Overall mean Kappa | Housing mean Kappa | Agriculture mean Kappa | Mean Off-Cat. % |
+|---|---:|---:|---:|---:|
+| Composite | **0.3411** | 0.2828 | **0.3995** | **14.07%** |
+| Vulnerability alone | 0.2926 | 0.2935 | 0.2917 | 30.67% |
+| Hazard-only (weighted) | 0.2913 | **0.3235** | 0.2591 | 18.30% |
 
-Accordingly, the analysis should not be interpreted as evidence that the Composite universally outperforms every simpler predictor. Its clearest added value is for agricultural impact severity and in the aggregate cross-cyclone comparison.
+By cyclone, averaged across the 12 combinations for each event:
+
+| Cyclone | Composite | Vulnerability alone | Hazard-only (weighted) | Highest mean Kappa |
+|---|---:|---:|---:|---|
+| Remal | 0.5151 | 0.4097 | **0.5394** | Hazard-only |
+| Midhili | **0.3536** | 0.2174 | 0.2230 | Composite |
+| Sitrang | 0.1546 | **0.2507** | 0.1115 | Vulnerability alone |
+
+The ablation result supports a **sector-specific and event-dependent interpretation**. The Composite has the highest overall mean Kappa and the strongest agricultural performance across the three cyclones, and is the best of the three predictors in 14 of the 18 agricultural combinations. Weighted hazard alone has the highest cross-cyclone housing mean Kappa and wins Remal outright. Vulnerability alone is the strongest predictor for Sitrang in both sectors, and across the full sample it is statistically indistinguishable from weighted hazard alone, the two being separated by 0.0013.
+
+Accordingly, the analysis should not be interpreted as evidence that the Composite universally outperforms every simpler predictor. Its clearest added value is for agricultural impact severity and in the aggregate cross-cyclone comparison, and neither standalone predictor is superior across all events and sectors.
+
+Margins between predictors are small in several cells. Differences below roughly 0.01 in mean Kappa should not be treated as meaningful, and no confidence intervals or tests of difference are computed.
 
 ## Example outputs
 
@@ -360,15 +405,15 @@ The table below illustrates the calibrated categorical comparison for Cyclone Re
 
 | Cyclone | Lead Time | Variable | n | Exact Match (n) | Exact Match (%) | Adjacent (n) | Within-1-Class (n) | Within-1-Class (%) | Off-Category Error (%) |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|
-| Remal | 24h | House: No. Damaged Households | 154 | 92 | 59.7% | 54 | 146 | 94.8% | 5.2% |
+| Remal | 24h | House: No. Damaged Households | 154 | 96 | 62.3% | 52 | 148 | 96.1% | 3.9% |
 | Remal | 24h | House: Repair Amount (BDT) | 154 | 89 | 57.8% | 56 | 145 | 94.2% | 5.8% |
 | Remal | 24h | Agriculture: Land Loss (ha) | 154 | 38 | 24.7% | 98 | 136 | 88.3% | 11.7% |
 | Remal | 24h | Agriculture: Loss Amount (BDT) | 154 | 51 | 33.1% | 92 | 143 | 92.9% | 7.1% |
-| Remal | 48h | House: No. Damaged Households | 154 | 99 | 64.3% | 49 | 148 | 96.1% | 3.9% |
-| Remal | 48h | House: Repair Amount (BDT) | 154 | 96 | 62.3% | 51 | 147 | 95.5% | 4.5% |
-| Remal | 48h | Agriculture: Land Loss (ha) | 154 | 54 | 35.1% | 84 | 138 | 89.6% | 10.4% |
-| Remal | 48h | Agriculture: Loss Amount (BDT) | 154 | 57 | 37.0% | 83 | 140 | 90.9% | 9.1% |
-| Remal | 72h | House: No. Damaged Households | 154 | 88 | 57.1% | 56 | 144 | 93.5% | 6.5% |
+| Remal | 48h | House: No. Damaged Households | 154 | 106 | 68.8% | 46 | 152 | 98.7% | 1.3% |
+| Remal | 48h | House: Repair Amount (BDT) | 154 | 101 | 65.6% | 48 | 149 | 96.8% | 3.2% |
+| Remal | 48h | Agriculture: Land Loss (ha) | 154 | 56 | 36.4% | 82 | 138 | 89.6% | 10.4% |
+| Remal | 48h | Agriculture: Loss Amount (BDT) | 154 | 59 | 38.3% | 81 | 140 | 90.9% | 9.1% |
+| Remal | 72h | House: No. Damaged Households | 154 | 91 | 59.1% | 53 | 144 | 93.5% | 6.5% |
 | Remal | 72h | House: Repair Amount (BDT) | 154 | 88 | 57.1% | 56 | 144 | 93.5% | 6.5% |
 | Remal | 72h | Agriculture: Land Loss (ha) | 154 | 53 | 34.4% | 77 | 130 | 84.4% | 15.6% |
 | Remal | 72h | Agriculture: Loss Amount (BDT) | 154 | 57 | 37.0% | 75 | 132 | 85.7% | 14.3% |
@@ -525,7 +570,9 @@ This repository includes code and sample data for:
 - Optimizing No-Impact decision thresholds.
 - Calibrating DDM severity classes with cyclone-wide fixed thresholds across three lead times.
 - Producing spatial verification outputs.
-- Comparing the full Composite against standalone vulnerability and weighted hazard predictors for all three cyclones.
+- Comparing the full Composite against standalone vulnerability and weighted hazard predictors for all three cyclones, on both quadratic-weighted Kappa and AUC.
+
+The component comparison tables in this README correspond to Tables S4, S5 and S6 of the manuscript. The calibrated categorical results correspond to Tables 4a and 4b.
 
 The forecast impact engine populates the supplied impact template with matched hazard, vulnerability, and exposure values. The operational composite formula, normalization structure, and event-specific hazard weighting should be interpreted together with the methodology described in the manuscript and the formulas retained in the supplied forecast-impact template.
 
