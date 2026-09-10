@@ -10,12 +10,17 @@ Compare the existing composite IBF forecast against:
        Excel column F = Norm_Vul
 
 2. Hazard only, weighted
-       0.35 * H + 0.35 * J + 0.30 * L
+       w_wind * H + w_rain * J + w_surge * L
 
    where:
        H = Norm_Wind Gust
        J = Norm_Rainfall
        L = Norm_Storm Surge
+
+   IMPORTANT: the weights (w_wind, w_rain, w_surge) are NOT the same
+   across all cyclones/lead times. They are defined per cyclone and
+   per lead time in the HAZARD_WEIGHTS dictionary below, so they can
+   be edited manually in one place. See that section for details.
 
 The DDM severity calibration, quadratic-weighted Kappa calculation,
 three-lead common-cut search, forecast threshold derivation, admin-name
@@ -105,6 +110,51 @@ MANUAL_THRESHOLDS = {
         "1dlt": {"Housing": 0.1500, "Agriculture": 0.1500},
         "2dlt": {"Housing": 0.1500, "Agriculture": 0.1500},
         "3dlt": {"Housing": 0.1500, "Agriculture": 0.1500},
+    },
+}
+
+
+# ============================================================
+# MANUAL HAZARD-ONLY WEIGHTS (EDIT HERE)
+# ------------------------------------------------------------
+# Weighted_Hazard = w_wind * Norm_Wind Gust
+#                  + w_rain * Norm_Rainfall
+#                  + w_surge * Norm_Storm Surge
+#
+# These weights differ by cyclone AND by lead time, so each
+# cyclone/lead combination has its own entry below. Change the
+# numbers here only -- nothing else in the script needs to change.
+#
+# Current settings (as specified):
+#   Remal            : all leads      -> 0.35 / 0.35 / 0.30
+#   Midhili 1dlt,2dlt :                -> 0.35 / 0.35 / 0.30
+#   Midhili 3dlt      :                -> 0.50 / 0.50 / 0.00
+#   Sitrang 1dlt,2dlt :                -> 0.40 / 0.20 / 0.40
+#   Sitrang 3dlt      :                -> 0.50 / 0.50 / 0.00
+#
+# Keys must match the cyclone name exactly as it appears in the
+# cyclone config (config["cyclone"]["name"]) and in MANUAL_THRESHOLDS
+# above (e.g. "Remal", "Midhili", "Sitrang").
+# ============================================================
+
+HAZARD_WEIGHTS = {
+
+    "Remal": {
+        "1dlt": {"wind": 0.35, "rainfall": 0.35, "storm_surge": 0.30},
+        "2dlt": {"wind": 0.35, "rainfall": 0.35, "storm_surge": 0.30},
+        "3dlt": {"wind": 0.35, "rainfall": 0.35, "storm_surge": 0.30},
+    },
+
+    "Midhili": {
+        "1dlt": {"wind": 0.35, "rainfall": 0.35, "storm_surge": 0.30},
+        "2dlt": {"wind": 0.35, "rainfall": 0.35, "storm_surge": 0.30},
+        "3dlt": {"wind": 0.50, "rainfall": 0.50, "storm_surge": 0.00},
+    },
+
+    "Sitrang": {
+        "1dlt": {"wind": 0.40, "rainfall": 0.20, "storm_surge": 0.40},
+        "2dlt": {"wind": 0.40, "rainfall": 0.20, "storm_surge": 0.40},
+        "3dlt": {"wind": 0.50, "rainfall": 0.50, "storm_surge": 0.00},
     },
 }
 
@@ -209,6 +259,45 @@ def clean_admin(x):
         .strip()
         .split()
     )
+
+
+def get_hazard_weights(cyclone, lead):
+    """
+    Look up the manually-specified hazard-only weights for this
+    cyclone and lead time from HAZARD_WEIGHTS.
+
+    Raises a clear error if a cyclone/lead combination has not been
+    configured, so a missing entry can never silently fall back to
+    the wrong weights.
+    """
+
+    if cyclone not in HAZARD_WEIGHTS:
+        raise KeyError(
+            f"No HAZARD_WEIGHTS entry for cyclone '{cyclone}'. "
+            f"Add one to the HAZARD_WEIGHTS dictionary."
+        )
+
+    if lead not in HAZARD_WEIGHTS[cyclone]:
+        raise KeyError(
+            f"No HAZARD_WEIGHTS entry for cyclone '{cyclone}', "
+            f"lead '{lead}'. Add one to the HAZARD_WEIGHTS dictionary."
+        )
+
+    w = HAZARD_WEIGHTS[cyclone][lead]
+
+    missing = [
+        k
+        for k in ("wind", "rainfall", "storm_surge")
+        if k not in w
+    ]
+
+    if missing:
+        raise KeyError(
+            f"HAZARD_WEIGHTS['{cyclone}']['{lead}'] is missing "
+            f"key(s): {missing}"
+        )
+
+    return w
 
 
 def weighted_kappa(a, b, K=4):
@@ -333,6 +422,8 @@ def vulnerability_index_fixed(values):
 def load_forecast(
     file_path,
     sheet_name,
+    cyclone,
+    lead,
 ):
     """
     Load one forecast lead and derive the SAME lead-specific operational
@@ -343,6 +434,11 @@ def load_forecast(
 
     Thresholds are rounded to 4 decimals BEFORE classification, exactly
     as in the current repository Kappa-calibration code.
+
+    `cyclone` and `lead` are used only to look up the correct
+    hazard-only weights for this cyclone/lead combination from
+    HAZARD_WEIGHTS (they differ by cyclone and by lead time -- see
+    that dictionary near the top of the script).
     """
     df = pd.read_excel(
         file_path,
@@ -483,15 +579,19 @@ def load_forecast(
             )
 
     # --------------------------------------------------------
-    # USER-REQUESTED WEIGHTED HAZARD
+    # HAZARD-ONLY WEIGHTED SCORE
     #
-    # H*0.35 + J*0.35 + L*0.30
+    # Weights are NOT constant across cyclones/leads. They are
+    # looked up per cyclone + lead from HAZARD_WEIGHTS (edit that
+    # dictionary near the top of the script to change them).
     # --------------------------------------------------------
 
+    hw = get_hazard_weights(cyclone, lead)
+
     df["Weighted_Hazard"] = (
-        0.35 * df["Norm_Wind Gust"]
-        + 0.35 * df["Norm_Rainfall"]
-        + 0.30 * df["Norm_Storm Surge"]
+        hw["wind"] * df["Norm_Wind Gust"]
+        + hw["rainfall"] * df["Norm_Rainfall"]
+        + hw["storm_surge"] * df["Norm_Storm Surge"]
     )
 
     # Same admin cleaning / duplicate handling as repository.
@@ -1308,10 +1408,18 @@ def run_cyclone(
         ) = load_forecast(
             forecast_files[lead],
             forecast_sheet,
+            cyclone,
+            lead,
         )
+
+        hw = HAZARD_WEIGHTS[cyclone][lead]
 
         print()
         print(lead)
+        print(
+            "  Hazard weights (wind/rain/surge):",
+            f"{hw['wind']} / {hw['rainfall']} / {hw['storm_surge']}",
+        )
         print(
             "  House thresholds:",
             thresholds_by_lead[lead]["house"],
@@ -2018,6 +2126,16 @@ def run_cyclone(
         "Method"
     )
 
+    hw_lines = []
+    for lead in LEADS:
+        hw = HAZARD_WEIGHTS[cyclone][lead]
+        hw_lines.append(
+            f"  {lead}: "
+            f"w_wind={hw['wind']}, "
+            f"w_rain={hw['rainfall']}, "
+            f"w_surge={hw['storm_surge']}"
+        )
+
     method_lines = [
         "Ablation comparison method",
         "",
@@ -2028,8 +2146,11 @@ def run_cyclone(
         "Uses Norm_Vul, Excel column F.",
         "",
         "Hazard-only weighted:",
-        "Weighted_Hazard = 0.35*Norm_Wind Gust + 0.35*Norm_Rainfall + 0.30*Norm_Storm Surge",
-        "Equivalent Excel columns: 0.35*H + 0.35*J + 0.30*L.",
+        "Weighted_Hazard = w_wind*Norm_Wind Gust + w_rain*Norm_Rainfall + w_surge*Norm_Storm Surge",
+        "Equivalent Excel columns: w_wind*H + w_rain*J + w_surge*L.",
+        f"Weights used for {cyclone} (see HAZARD_WEIGHTS in the script):",
+        *hw_lines,
+        "Weights differ by cyclone and by lead time and are set manually in HAZARD_WEIGHTS.",
         "",
         "Forecast severity boundaries:",
         "Derived independently for each lead exactly as in the repository.",
