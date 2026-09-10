@@ -466,6 +466,7 @@ IBF-Analysis/
 ├── docs/
 │   ├── data_dictionary.md
 │   ├── transformation_methods.md
+│   ├── IBF_Manuscript.docx
 │   └── images/
 │       ├── framework_overview.png
 │       ├── example_roc_auc.png
@@ -478,6 +479,7 @@ IBF-Analysis/
 │
 ├── scripts/
 │   ├── ablation_kappa_comparison_all_cyclones.py
+│   ├── auc_ablation_comparison_all_cyclones.py
 │   ├── check_inputs.py
 │   ├── download_building_counts.py
 │   ├── fapar_processing.py
@@ -485,12 +487,31 @@ IBF-Analysis/
 │   ├── forecasted_impact_engine.py
 │   ├── run_analysis.py
 │   ├── transformation_comparison.py
+│   ├── vulnerability_categorization.py
 │   └── legacy/
 │       ├── IBF-Analysis-original.ipynb
 │       └── upazila_building_count_download.js
 │
 ├── outputs/
-│   └── generated validation, calibration, spatial, and ablation products
+│   ├── Forecasted_Impact.xlsx
+│   ├── Ablation_AUC_Comparison/
+│   │   └── All_Cyclones_AUC_Ablation_Comparison.xlsx
+│   ├── vulnerability_categories/
+│   │   ├── Remal_Vulnerability_Categories.xlsx
+│   │   ├── Midhili_Vulnerability_Categories.xlsx
+│   │   └── Sitrang_Vulnerability_Categories.xlsx
+│   ├── remal/
+│   │   └── Ablation_Kappa_Comparison/
+│   │       └── Remal_Ablation_Kappa_Comparison.xlsx
+│   ├── midhili/
+│   │   ├── Ablation_Kappa_Comparison/
+│   │   │   └── Midhili_Ablation_Kappa_Comparison.xlsx
+│   │   └── FAPAR/
+│   │       ├── fapar_loss_by_upazila.csv
+│   │       └── fapar_loss_by_upazila.xlsx
+│   └── sitrang/
+│       └── Ablation_Kappa_Comparison/
+│           └── Sitrang_Ablation_Kappa_Comparison.xlsx
 │
 ├── CITATION.cff
 ├── LICENSE
@@ -500,7 +521,11 @@ IBF-Analysis/
 └── run_command.txt
 ```
 
-The tree above focuses on the main analysis files and intentionally summarizes shapefile components and generated outputs.
+The tree above focuses on the main analysis files and intentionally summarizes shapefile components.
+
+> **Note:** the repository currently also has a few stray files tracked in git that aren't part of the intended structure: `.Rhistory` (empty R history file), `data/sample/midhili/New Microsoft Excel Worksheet.xlsx`, and `data/sample/sitrang/~$Forecasted_Impact_2dlt.xlsx` (an Excel lock file, created automatically while that workbook is open). These are left out of the tree above; consider removing them from git (`git rm` them) and adding `*.xlsx#` / `~$*` and `.Rhistory` to `.gitignore` so they don't get re-committed.
+>
+> Note also that `outputs/` is listed in `.gitignore` for locally-generated results, but the sample outputs shown above are currently committed to git anyway — worth double-checking that's intentional (e.g. distributing example output for reviewers) rather than accidental.
 
 ## Running the workflow
 
